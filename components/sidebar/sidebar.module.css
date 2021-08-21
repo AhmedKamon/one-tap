@@ -1,0 +1,33 @@
+.main {
+    background-color: #004CD4;
+    height: 100vh;
+    width: 248px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sideBarLogo{
+    margin-top: 50px;
+    color: #86A6F4;
+}
+.singleLogo:hover{
+    color: white;
+    cursor: pointer;
+}
+.upgrade{
+    background-color: white;
+    height: 40px;
+    margin-top: auto;
+    margin-bottom: 10%;
+    text-transform: uppercase;
+    border: 1px solid #004CD4;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: white;
+    color: #FFB229;
+
+}
