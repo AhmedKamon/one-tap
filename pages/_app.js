@@ -1,10 +1,10 @@
-import '../styles/globals.css'
 import Head from "next/head";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-     <Head>
+      <Head>
         <title>OneTap</title>
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -13,9 +13,11 @@ function MyApp({ Component, pageProps }) {
           crossOrigin="anonymous"
         ></link>
       </Head>
-    <Component {...pageProps} />
+      <div className="main-bg">
+        <Component {...pageProps} />
+      </div>
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

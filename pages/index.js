@@ -1,14 +1,11 @@
-import Head from 'next/head';
-import Analytics from '../components/analytics/analytics';
-import Navbar from '../components/navbar/navbar';
-import Nfc from '../components/nfc/nfc';
-import Overview from '../components/overview/overview';
-import Projects from '../components/projects/projects';
-import QrCodeTemplate from '../components/qrCodeTemplate/qrCodeTemplate';
-import QrCodes from '../components/quCodes/quCodes';
-import Sidebar from '../components/sidebar/sidebar';
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Navbar from "../components/navbar/navbar";
+import Sidebar from "../components/sidebar/sidebar";
 
 export default function Home() {
+  const router = useRouter();
+  const currentPath = router.pathname;
   return (
     <div className="main-bg overflow-hidden">
       <Head>
@@ -23,12 +20,7 @@ export default function Home() {
           </div>
           <div className="col-md-9 ">
             <Navbar />
-            {/* <Overview /> */}
-            {/* <Projects /> */}
-            <QrCodeTemplate />
-            {/* <Nfc /> */}
-            {/* <Analytics /> */}
-            {/* <QrCodes /> */}
+            <p>This is qr code</p>
           </div>
         </div>
       </div>
