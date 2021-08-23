@@ -1,0 +1,19 @@
+.qrInput{
+    border: none;
+  background-color: #E8F0FF;
+  color: #004CD4;
+  width: 100%;
+  padding: 7px 15px;
+  position: relative;
+}
+.title{
+    background-color: #004CD4;
+    padding: 13px 10px;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.temp{
+    background-color: #E8F0FF;
+    color: #004CD4;
+}

@@ -1,17 +1,17 @@
-import image1 from './images/Group 152.svg';
-import image2 from './images/Group 153.svg';
-import image3 from './images/Group 154.svg';
-import image4 from './images/Group 155.svg';
-import image5 from './images/Group 156.svg';
-import image6 from './images/Group 157.svg';
-import image7 from './images/Group 158.svg';
-import image8 from './images/Group 159.svg';
-import image9 from './images/Group 161.svg';
+import image1 from './images/Group 71.svg';
+import image2 from './images/003-layers.svg';
+import image3 from './images/001-qr-code.svg';
+import image4 from './images/001-nfc.svg';
+import image5 from './images/002-analytics.svg';
+import image6 from './images/001-water-drop.svg';
+import image7 from './images/website support.svg';
+import image8 from './images/004-megaphone.svg';
+import image9 from './images/005-information.svg';
 
 export const data = [
   {
     id: 1,
-    logo: image2,
+    logo: image1,
     name: 'Overview',
     link: 'overview',
   },
