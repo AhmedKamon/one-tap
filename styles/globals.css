@@ -81,3 +81,15 @@ a {
 .cursor-poiter{
   cursor: pointer;
 }
+
+/* ======= */
+.textColor{
+  color: #004CD4;
+}
+/* ==== */
+.fs-22{
+  font-size: 22px;
+}
+.lh-12{
+  line-height: 12px;
+}
