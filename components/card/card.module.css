@@ -1,0 +1,14 @@
+.cardStyle{
+background-color: #FFFFFF;
+border-radius:10px;
+width:250px;
+height:560px;
+}
+
+.cardStyle:hover {
+    width:272px;
+    height:610px;
+    box-shadow: 5px 5px 20px whitesmoke;
+    color:red;
+    scale:1;
+}
