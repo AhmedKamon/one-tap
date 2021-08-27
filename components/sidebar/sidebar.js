@@ -1,9 +1,10 @@
-import React from 'react';
-import styles from './sidebar.module.css';
 import Image from 'next/image';
-import icon from '../../utilites/images/Mask Group.svg';
-import { data } from '../../utilites/data';
+import Link from 'next/link';
+import React from 'react';
 import { BsStarFill } from 'react-icons/bs';
+import { data } from '../../utilites/data';
+import icon from '../../utilites/images/Mask Group.svg';
+import styles from './sidebar.module.css';
 
 const Sidebar = () => {
   return (
@@ -15,14 +16,14 @@ const Sidebar = () => {
 
         <ul className={`${styles.sideBarLogo} navbar-nav`}>
           {data.map((logo) => (
-            <li key={logo.id} className={`nav-item mt-2 `}>
+            <li key={logo.id} className={`nav-item mt-4 `}>
               <span className="d-flex align-items-center" href="">
                 <div className="me-3">
                   <Image src={logo.logo} height="20" width="20" alt="logo" />
                 </div>
-                <div>
-                  <p className={`${styles.singleLogo}`}>{logo.name}</p>
-                </div>
+                <Link href={logo.link}>
+                  <a className={`${styles.singleLogo}`}>{logo.name}</a>
+                </Link>
               </span>
             </li>
           ))}
