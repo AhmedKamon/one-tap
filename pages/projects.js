@@ -9,13 +9,13 @@ const Projects = () => {
   return (
     <div className="container vh-100">
       <div className="row">
-        <div className="col-md-3">
+        <div className="col-md-2">
           <Sidebar />
         </div>
-        <div className="col-md-9 ">
+        <div className="col-md-10 ">
           <Navbar />
           <Scrollbar style={{ width: '60vw', height: '85vh' }}>
-            <div className="mt-5 main pe-5">
+            <div className="container mt-5 main pe-5">
               <div className="d-flex justify-content-between">
                 <div className="col-md-6  position-relative ">
                   <input
@@ -27,12 +27,12 @@ const Projects = () => {
                   <FaSearch className="searchIcon" />
                 </div>
                 <div className="col-md-3 text-center ms-5">
-                  <button className="btn" type="">
+                  <button className="project-btn fs-18 lh-12 py-3" type="">
                     Filter
                   </button>
                 </div>
                 <div className="col-md-3 text-center">
-                  <button className="btn" type="">
+                  <button className="project-btn" type="">
                     Last 7 days
                   </button>
                 </div>

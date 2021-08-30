@@ -22,19 +22,27 @@ const Navbar = () => {
           </div>
         </div>
         <div className="col-md-6 ">
-          <div className="d-flex align-items-center justify-content-between mt-1">
-            <h6 className={`${styles.Invitebtn} fs-16 lh-12`}>
-              Invite A Friend
-            </h6>
+          <div className="d-flex align-items-center justify-content-center mt-1">
+            <span>
+              <h6
+                className={`${styles.Invitebtn} me-4 fs-16 lh-12  px-4 py-3 text-white`}
+              >
+                Invite A Friend
+              </h6>
+            </span>
 
-            <Image
-              src={user}
-              height="50"
-              width="50"
-              className="rounded-circle "
-              alt="user"
-            />
-            <h6 className="mx-4 fs-22 lh-26">Kamon Ahmed</h6>
+            <span>
+              <Image
+                src={user}
+                height="50"
+                width="50"
+                className="rounded-circle "
+                alt="user"
+              />
+            </span>
+            <span>
+              <h6 className="ms-4 fs-22 lh-26 fw-bold">Kamon Ahmed</h6>
+            </span>
           </div>
         </div>
       </div>

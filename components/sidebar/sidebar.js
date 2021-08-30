@@ -19,11 +19,11 @@ const Sidebar = () => {
 
         <ul className={`${styles.sideBarLogo} navbar-nav container`}>
           {data.map((logo) => (
-            <li key={logo.id} className={`nav-item container`}>
+            <li key={logo.id} className={`nav-item ms-3 `}>
               <div className=" d-flex align-items-center mt-3 ms-3">
                 <Link href={logo.link}>
                   <a className="me-3 fs-16 mt-1">
-                    <Image src={logo.logo} height="16" width="16" alt="logo" />
+                    <Image src={logo.logo} height="20" width="20" alt="logo" />
                   </a>
                 </Link>
                 <Link href={logo.link}>
