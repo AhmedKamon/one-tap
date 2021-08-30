@@ -1,7 +1,8 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import Navbar from "../components/navbar/navbar";
-import Sidebar from "../components/sidebar/sidebar";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import Navbar from '../components/navbar/navbar';
+import Sidebar from '../components/sidebar/sidebar';
+import CanvasMain from '../components/canvas/canvas';
 
 export default function Home() {
   const router = useRouter();
@@ -15,12 +16,14 @@ export default function Home() {
       </Head>
       <div className="container vh-100">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-2">
             <Sidebar />
           </div>
-          <div className="col-md-9 ">
+          <div className="col-md-10 ">
             <Navbar />
-            <p>This is qr code</p>
+            <div>
+              <CanvasMain />
+            </div>
           </div>
         </div>
       </div>

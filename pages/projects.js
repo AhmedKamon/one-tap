@@ -1,7 +1,9 @@
-import { FaSearch } from "react-icons/fa";
-import Navbar from "../components/navbar/navbar";
-import Sidebar from "../components/sidebar/sidebar";
-import { projectData } from "../utilites/projectData";
+import { FaSearch } from 'react-icons/fa';
+import Navbar from '../components/navbar/navbar';
+import Sidebar from '../components/sidebar/sidebar';
+import { projectData } from '../utilites/projectData';
+import { Scrollbar } from 'react-scrollbars-custom';
+import NextLink from 'next/link';
 
 const Projects = () => {
   return (
@@ -12,61 +14,67 @@ const Projects = () => {
         </div>
         <div className="col-md-9 ">
           <Navbar />
-          <div className="mt-5 main">
-            <div className="d-flex justify-content-between">
-              <div className="col-md-6  position-relative ">
-                <input
-                  className={`projectInput form-control`}
-                  type="text"
-                  placeholder="enter your project name"
-                  name="enter your project name"
-                />
-                <FaSearch className="searchIcon" />
+          <Scrollbar style={{ width: '60vw', height: '85vh' }}>
+            <div className="mt-5 main pe-5">
+              <div className="d-flex justify-content-between">
+                <div className="col-md-6  position-relative ">
+                  <input
+                    className={`projectInput form-control`}
+                    type="text"
+                    placeholder="enter your project name"
+                    name="enter your project name"
+                  />
+                  <FaSearch className="searchIcon" />
+                </div>
+                <div className="col-md-3 text-center ms-5">
+                  <button className="btn" type="">
+                    Filter
+                  </button>
+                </div>
+                <div className="col-md-3 text-center">
+                  <button className="btn" type="">
+                    Last 7 days
+                  </button>
+                </div>
               </div>
-              <div className="col-md-3 text-center ms-5">
-                <button className="btn" type="">
-                  Filter
-                </button>
-              </div>
-              <div className="col-md-3 text-center">
-                <button className="btn" type="">
-                  Last 7 days
-                </button>
-              </div>
-            </div>
-            <div className="bg-project p-5">
-              <div className="ps-4">
-                <h6 className="fw-bold">ALL PROJECTS</h6>
-              </div>
-              <div className="row">
-                {projectData.map((item) => (
-                  <>
+
+              <div className="bg-project p-5">
+                <div className="ps-4">
+                  <h6 className="fw-bold">ALL PROJECTS</h6>
+                </div>
+                <div className="row">
+                  {projectData.map((item) => (
                     <div
                       key={item.id}
-                      className="col-md-3  my-3  projectCardItems"
+                      className="col-md-3  my-3 projectCardItems"
                     >
-                      <div className="h-100">
-                        <div className=" projectCardItem ">
-                          <span style={{ fontSize: "50px" }}>{item.icon}</span>
-                          <p>{item.tittle}</p>
+                      <a href={item.link}>
+                        <div className="h-75">
+                          <div className=" projectCardItem text-center ">
+                            <span style={{ fontSize: '50px' }}>
+                              {item.icon}
+                            </span>
+
+                            <p>{item.tittle}</p>
+                          </div>
+                          <div
+                            className="d-flex justify-content-between "
+                            style={{
+                              fontSize: '13px',
+                              margin: '0px 0px 0px 20px',
+                            }}
+                          >
+                            <p>{item.detail}</p>
+                            <p>{item.date}</p>
+                          </div>
                         </div>
-                        <div
-                          className="d-flex justify-content-between "
-                          style={{
-                            fontSize: "13px",
-                            margin: "0px 0px 0px 20px",
-                          }}
-                        >
-                          <p>{item.detail}</p>
-                          <p>{item.date}</p>
-                        </div>
-                      </div>
+                      </a>
                     </div>
-                  </>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </Scrollbar>
         </div>
       </div>
     </div>
