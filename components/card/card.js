@@ -39,7 +39,7 @@ const Card = () => {
 
       {/* card start */}
 
-      <div className="d-flex">
+      <div className="d-flex ">
         {cardData.map((data) => (
           <div
             className={`${styles.cardStyle} mt-4 mb-2 ${
@@ -82,7 +82,7 @@ const Card = () => {
             </div>
             <div className="d-flex justify-content-center">
               <button
-                className={`px-4 ${
+                className={`px-4 mb-4 ${
                   data.id === 4 ? `btn btn-light` : "btn btn-primary"
                 }`}
               >
