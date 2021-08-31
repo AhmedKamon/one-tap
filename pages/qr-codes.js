@@ -2,8 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import Navbar from '../components/navbar/navbar';
 import Sidebar from '../components/sidebar/sidebar';
-import styles from '../styles/qr-codes.module.css';
-import QRCode from '../utilites/images/001-qr-code-blue.svg';
+import styles from '../styles/qrCodes.module.css';
+import QRCode from '../utilites/images/001-qr-code.svg';
 import { GoPlus } from 'react-icons/go';
 import { BiPlusMedical } from 'react-icons/bi';
 import { FiMoreVertical } from 'react-icons/fi';
@@ -55,7 +55,7 @@ const QrCodes = () => {
             <hr />
             {/* ================================================================== */}
             {/* ================================================================== */}
-            <div className="m-4 border border-primary rounded-3">
+            <div className={`${styles.card} m-4 mt-5 rounded-3 shadow-sm`}>
               <div className="row px-4 py-2">
                 <div className="col-md-3 d-flex justify-content-center align-items-center ">
                   <div>
@@ -101,7 +101,7 @@ const QrCodes = () => {
                 <div className="col-md-3 py-5 ps-5 pe-3">
                   <button
                     type=""
-                    className="d-flex justify-content-between align-items-center px-4 py-2 text-primary bg-white border border-primary rounded-3 mt-2 w-100"
+                    className={`${styles.btn} d-flex justify-content-between align-items-center px-4 py-2 text-primary  rounded-3 mt-2 w-100`}
                   >
                     <span>
                       <BiPlusMedical className={`${styles.iconColor} me-2`} />
@@ -111,7 +111,7 @@ const QrCodes = () => {
                   </button>
                   <button
                     type=""
-                    className="d-flex justify-content-between align-items-center px-4 py-2 text-primary bg-white border border-primary rounded-3 mt-2 w-100"
+                    className={`${styles.btn} d-flex justify-content-between align-items-center px-4 py-2 text-primary  rounded-3 mt-2 w-100`}
                   >
                     <FaDownload className={`${styles.iconColor} me-3 `} />
                     <span className="">Download</span>

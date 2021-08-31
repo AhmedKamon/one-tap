@@ -6,6 +6,7 @@ export const projectData = [
     tittle: 'Create a new project',
     detail: '',
     date: '',
+    link: '/createPage',
   },
   {
     id: 2,
