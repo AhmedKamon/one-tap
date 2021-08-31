@@ -24,7 +24,6 @@ const cardData = [
     price: 15,
   },
 ];
-console.log(cardData[3]);
 
 const Card = () => {
   return (

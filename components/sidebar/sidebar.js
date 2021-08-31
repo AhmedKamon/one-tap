@@ -38,7 +38,7 @@ const Sidebar = () => {
             <span>
               <BsStarFill className="me-2 " style={{ fontSize: '29px' }} />
             </span>
-            <span className="fs-18">UPGRADE NOW</span>
+            <Link  href='/cards' className="fs-18">UPGRADE NOW</Link>
           </div>
         </div>
       </div>

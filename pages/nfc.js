@@ -13,14 +13,17 @@ const Nfc = () => {
   return (
     <div className="container vh-100">
       <div className="row">
-        <div className="col-md-3">
+        <div className="col-md-2">
           <Sidebar />
         </div>
-        <div className="col-md-9 ">
+        <div className="col-md-10">
           <Navbar />
-          <Scrollbar style={{ width: "55vw", height: "85vh" }}>
+          {/* <Scrollbar style={{ width: "55vw", height: "85vh" }}> */}
             <div className="pe-2 mb-5">
-              <div className={`${styles.card} mt-5 px-5 pt-5 pb-3 shadow-sm`}>
+              <div
+              //  className={`${styles.card} mt-5 px-5 pt-5 pb-3 shadow-sm`}
+              className="m-5 pt-4 boxShadow p-3 mb-5 bg-body rounded p-5"
+               >
                 <div className="d-flex align-items-center">
                   <div>
                     <Image src={logo} alt="logo" />
@@ -32,22 +35,25 @@ const Nfc = () => {
                   </div>
                 </div>
                 <div className="d-flex my-4">
-                  <div className="p-2 text-center">
-                    <Image src={qr} height="100" width="100" alt="logo" />
-                    <p className={` mt-3 px-2 py-1 border fw-bold`}>
+                  <div className="p-2 text-cente">
+                    <Image src={qr} height="80" width="80" alt="logo" />
+                    <p className=" mt-3 px-2 py-1  fw-bold">
                       Default template
                     </p>
                   </div>
                   <div className="p-2 text-center ms-5">
-                    <Image src={qr} height="100" width="100" alt="logo" />
-                    <p className={` mt-3 px-2 py-1 border fw-bold`}>Circular</p>
+                    <Image src={qr} height="80" width="80" alt="logo" />
+                    <p className={` mt-3 px-2 py-1  fw-bold`}>Circular</p>
                   </div>
                 </div>
               </div>
               <div
-                className={`${styles.bottomCard} mt-5 px-5 pt-5 pb-3 shadow-sm rounded`}
+                // className={`${styles.bottomCard} mt-5 px-5 pt-5 pb-3 shadow-sm rounded`}
+                className="m-5 pt-4 boxShadow p-3 mb-5 bg-body rounded"
               >
-                <div className="d-flex justify-content-between">
+                <div className="pb-5">
+                <div className="pb-5">
+                <div className="d-flex justify-content-between mb-5">
                   <div className="d-flex align-items-center">
                     <div>
                       <Image src={logo} alt="logo" />
@@ -60,7 +66,7 @@ const Nfc = () => {
                   </div>
                   <div>
                     <h6
-                      className="text-white fw-bold px-3 py-3"
+                      className="text-white fw-bold px-3 py-2 rounded"
                       style={{ backgroundColor: "#004CD4" }}
                     >
                       <GoPlus className="me-2" style={{ fontSize: "25px" }} />{" "}
@@ -68,9 +74,11 @@ const Nfc = () => {
                     </h6>
                   </div>
                 </div>
+                </div>
+                </div>
               </div>
             </div>
-          </Scrollbar>
+          {/* </Scrollbar> */}
         </div>
       </div>
     </div>
