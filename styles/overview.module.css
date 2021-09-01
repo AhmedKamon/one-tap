@@ -1,7 +1,8 @@
 .card {
   background-color: white;
-  /* width: 75%;
-  height: 85%; */
+
+  width: 90%;
+  height: 285px;
 }
 .cardText {
   display: flex;
