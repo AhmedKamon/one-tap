@@ -1,9 +1,9 @@
-import { FaSearch } from 'react-icons/fa';
-import Navbar from '../components/navbar/navbar';
-import Sidebar from '../components/sidebar/sidebar';
-import { projectData } from '../utilites/projectData';
-import { Scrollbar } from 'react-scrollbars-custom';
-import NextLink from 'next/link';
+import { FaSearch } from "react-icons/fa";
+import Navbar from "../components/navbar/navbar";
+import Sidebar from "../components/sidebar/sidebar";
+import { projectData } from "../utilites/projectData";
+import { Scrollbar } from "react-scrollbars-custom";
+import NextLink from "next/link";
 
 const Projects = () => {
   return (
@@ -14,25 +14,31 @@ const Projects = () => {
         </div>
         <div className="col-md-10 ">
           <Navbar />
-          <Scrollbar style={{ width: '60vw', height: '85vh' }}>
+          <Scrollbar style={{ width: "60vw", height: "85vh" }}>
             <div className="container mt-5 main pe-5">
               <div className="d-flex justify-content-between">
                 <div className="col-md-6  position-relative ">
                   <input
-                    className={`projectInput form-control`}
+                    className= "projectInput form-control text-primary"
                     type="text"
-                    placeholder="enter your project name"
+                    placeholder="Enter your project name"
                     name="enter your project name"
                   />
                   <FaSearch className="searchIcon" />
                 </div>
                 <div className="col-md-3 text-center ms-5">
-                  <button className="project-btn fs-18 lh-12 py-3" type="">
+                  <button
+                    className="btn btn-primary rounded px-5 project-btn active fs-18 lh-12 py-3"
+                    type=""
+                  >
                     Filter
                   </button>
                 </div>
                 <div className="col-md-3 text-center">
-                  <button className="project-btn" type="">
+                  <button
+                    className="btn btn-primary rounded px-5 project-btn active fs-18 lh-12 py-3"
+                    type=""
+                  >
                     Last 7 days
                   </button>
                 </div>
@@ -51,7 +57,7 @@ const Projects = () => {
                       <a href={item.link}>
                         <div className="h-75">
                           <div className=" projectCardItem text-center ">
-                            <span style={{ fontSize: '50px' }}>
+                            <span style={{ fontSize: "50px" }}>
                               {item.icon}
                             </span>
 
@@ -60,8 +66,8 @@ const Projects = () => {
                           <div
                             className="d-flex justify-content-between "
                             style={{
-                              fontSize: '13px',
-                              margin: '0px 0px 0px 20px',
+                              fontSize: "13px",
+                              margin: "0px 0px 0px 20px",
                             }}
                           >
                             <p>{item.detail}</p>

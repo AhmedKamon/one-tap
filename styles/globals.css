@@ -40,10 +40,6 @@ a {
 }
 
 .project-btn{
-  border: none;
-  cursor: pointer;
-  background-color:#004CD4 ;
-  padding: 10px 30px;
   color: white;
   width: 70%;
 }
