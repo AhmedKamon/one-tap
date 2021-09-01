@@ -1,8 +1,8 @@
-import React from 'react';
-import styles from './navbar.module.css';
-import Image from 'next/image';
-import { BsStarFill } from 'react-icons/bs';
-import user from '../../utilites/PewDiePie-Facebook.png';
+import Image from "next/image";
+import React from "react";
+import { BsStarFill } from "react-icons/bs";
+import user from "../../utilites/PewDiePie-Facebook.png";
+import styles from "./navbar.module.css";
 
 const Navbar = () => {
   return (
@@ -12,10 +12,10 @@ const Navbar = () => {
           <div className="d-flex align-items-center  justify-content-center">
             <h6 className="me-5 fw-bold fs-30 lh-26">Hello Kamon</h6>
             <button className={`${styles.btn}`}>
-              {' '}
+              {" "}
               <BsStarFill
                 className="me-2"
-                style={{ width: '19px', height: '20px' }}
+                style={{ width: "19px", height: "20px" }}
               />
               PREMIUM
             </button>
