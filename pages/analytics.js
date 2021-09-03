@@ -1,28 +1,28 @@
-import React from "react";
-import { Bar } from "react-chartjs-2";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { Scrollbar } from "react-scrollbars-custom";
-import Navbar from "../components/navbar/navbar";
-import Sidebar from "../components/sidebar/sidebar";
-import styles from "../styles/analytics.module.css";
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
+import { IoMdArrowDropdown } from 'react-icons/io';
+import { Scrollbar } from 'react-scrollbars-custom';
+import Navbar from '../components/navbar/navbar';
+import Sidebar from '../components/sidebar/sidebar';
+import styles from '../styles/analytics.module.css';
 
 const data = {
-  labels: ["1", "2", "3", "4", "5", "6"],
+  labels: ['1', '2', '3', '4', '5', '6'],
   datasets: [
     {
-      label: "",
+      label: '',
       data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: "rgb(255, 99, 132)",
+      backgroundColor: 'rgb(255, 99, 132)',
     },
     {
-      label: "",
+      label: '',
       data: [2, 3, 20, 5, 1, 4],
-      backgroundColor: "rgb(54, 162, 235)",
+      backgroundColor: 'rgb(54, 162, 235)',
     },
     {
-      label: "",
+      label: '',
       data: [3, 10, 13, 15, 22, 30],
-      backgroundColor: "rgb(75, 192, 192)",
+      backgroundColor: 'rgb(75, 192, 192)',
     },
   ],
 };
@@ -49,21 +49,21 @@ const Analytics = () => {
   return (
     <div className="container vh-100">
       <div className="row">
-        <div className="col-md-3">
+        <div className="col-md-2">
           <Sidebar />
         </div>
-        <div className="col-md-9 ">
+        <div className="col-md-10">
           <Navbar />
 
-          <Scrollbar style={{ width: "55vw", height: "85vh" }}>
+          <Scrollbar style={{ width: '55vw', height: '85vh' }}>
             <div className="mt-5">
               <div className="row">
                 <div className="col-md-6 pe-4">
                   <div className={`${styles.card} p-4`}>
                     <button className={`${styles.btn} px-3 py-1`} type="">
-                      Last 7 days{" "}
+                      Last 7 days{' '}
                       <IoMdArrowDropdown
-                        style={{ color: "white", fontSize: "20px" }}
+                        style={{ color: 'white', fontSize: '20px' }}
                       />
                     </button>
                     <p className="mt-3">Top performing</p>
@@ -80,9 +80,9 @@ const Analytics = () => {
                       </div>
                       <div>
                         <button className={`${styles.btn} px-3 py-1`} type="">
-                          Last 7 days{" "}
+                          Last 7 days{' '}
                           <IoMdArrowDropdown
-                            style={{ color: "white", fontSize: "20px" }}
+                            style={{ color: 'white', fontSize: '20px' }}
                           />
                         </button>
                       </div>
@@ -103,9 +103,9 @@ const Analytics = () => {
                       </div>
                       <div>
                         <button className={`${styles.btn} px-3 py-1`} type="">
-                          Last 7 days{" "}
+                          Last 7 days{' '}
                           <IoMdArrowDropdown
-                            style={{ color: "white", fontSize: "20px" }}
+                            style={{ color: 'white', fontSize: '20px' }}
                           />
                         </button>
                       </div>
