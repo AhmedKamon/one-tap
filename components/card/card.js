@@ -24,7 +24,6 @@ const cardData = [
     price: 15,
   },
 ];
-console.log(cardData[3]);
 
 const Card = () => {
   return (
@@ -39,7 +38,7 @@ const Card = () => {
 
       {/* card start */}
 
-      <div className="d-flex">
+      <div className="d-flex ">
         {cardData.map((data) => (
           <div
             key={data.id}
@@ -83,8 +82,8 @@ const Card = () => {
             </div>
             <div className="d-flex justify-content-center">
               <button
-                className={`px-4 ${
-                  data.id === 4 ? `btn btn-light` : 'btn btn-primary'
+                className={`px-4 mb-4 ${
+                  data.id === 4 ? `btn btn-light` : "btn btn-primary"
                 }`}
               >
                 BUY NOW

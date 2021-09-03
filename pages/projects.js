@@ -1,9 +1,6 @@
-import { FaSearch } from 'react-icons/fa';
-import Navbar from '../components/navbar/navbar';
-import Sidebar from '../components/sidebar/sidebar';
-import { projectData } from '../utilites/projectData';
-import { Scrollbar } from 'react-scrollbars-custom';
-import NextLink from 'next/link';
+import Navbar from "../components/navbar/navbar";
+import Sidebar from "../components/sidebar/sidebar";
+import { projectData } from "../utilites/projectData";
 
 const Projects = () => {
   return (
@@ -52,7 +49,7 @@ const Projects = () => {
                       <a href={item.link}>
                         <div className="h-75">
                           <div className=" projectCardItem text-center ">
-                            <span style={{ fontSize: '50px' }}>
+                            <span style={{ fontSize: "50px" }}>
                               {item.icon}
                             </span>
 
@@ -61,8 +58,8 @@ const Projects = () => {
                           <div
                             className="d-flex justify-content-between "
                             style={{
-                              fontSize: '13px',
-                              margin: '0px 0px 0px 20px',
+                              fontSize: "13px",
+                              margin: "0px 0px 0px 20px",
                             }}
                           >
                             <p>{item.detail}</p>

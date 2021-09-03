@@ -130,6 +130,7 @@ a {
   line-height: 66px;
 }
 
+<<<<<<< HEAD
 .scroll {
   overflow-y: scroll;
 }
@@ -148,3 +149,8 @@ a {
   background: #ddd;
   border-radius: 10px;
 }
+=======
+.boxShadow{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+>>>>>>> 3a2f85d8cbcfe0c81b01fd517e391112877c0f8a
