@@ -1,7 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { Scrollbar } from "react-scrollbars-custom";
 import Navbar from "../components/navbar/navbar";
 import Sidebar from "../components/sidebar/sidebar";
 import styles from "../styles/analytics.module.css";
@@ -49,85 +48,82 @@ const Analytics = () => {
   return (
     <div className="container vh-100">
       <div className="row">
-        <div className="col-md-3">
+        <div className="col-md-2">
           <Sidebar />
         </div>
-        <div className="col-md-9 ">
+        <div className="col-md-10 vh-100 scroll ">
           <Navbar />
-
-          <Scrollbar style={{ width: "55vw", height: "85vh" }}>
-            <div className="mt-5">
-              <div className="row">
-                <div className="col-md-6 pe-4">
-                  <div className={`${styles.card} p-4`}>
-                    <button className={`${styles.btn} px-3 py-1`} type="">
-                      Last 7 days{" "}
-                      <IoMdArrowDropdown
-                        style={{ color: "white", fontSize: "20px" }}
-                      />
-                    </button>
-                    <p className="mt-3">Top performing</p>
-                    <div className={`${styles.chart}`}>
-                      <Bar data={data} options={options} />
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6 pe-4">
-                  <div className={`${styles.card} p-4`}>
-                    <div className="d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6>kamon</h6>
-                      </div>
-                      <div>
-                        <button className={`${styles.btn} px-3 py-1`} type="">
-                          Last 7 days{" "}
-                          <IoMdArrowDropdown
-                            style={{ color: "white", fontSize: "20px" }}
-                          />
-                        </button>
-                      </div>
-                    </div>
-                    <div className="d-flex align-items-center justify-content-center h-100">
-                      <p>no data here to show</p>
-                    </div>
+          <div className="mt-5">
+            <div className="row">
+              <div className="col-md-6 pe-4">
+                <div className={`${styles.card} p-4`}>
+                  <button className={`${styles.btn} px-3 py-1`} type="">
+                    Last 7 days{" "}
+                    <IoMdArrowDropdown
+                      style={{ color: "white", fontSize: "20px" }}
+                    />
+                  </button>
+                  <p className="mt-3">Top performing</p>
+                  <div className={`${styles.chart}`}>
+                    <Bar data={data} options={options} />
                   </div>
                 </div>
               </div>
-              {/* ================================= */}
-              <div className="row mt-5 mb-5">
-                <div className="col-md-7 pe-4">
-                  <div className={`${styles.cardBottom} p-4`}>
-                    <div className="d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6>Total project clicks</h6>
-                      </div>
-                      <div>
-                        <button className={`${styles.btn} px-3 py-1`} type="">
-                          Last 7 days{" "}
-                          <IoMdArrowDropdown
-                            style={{ color: "white", fontSize: "20px" }}
-                          />
-                        </button>
-                      </div>
+              <div className="col-md-6 pe-4">
+                <div className={`${styles.card} p-4`}>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div>
+                      <h6>kamon</h6>
                     </div>
-                    <div className={`${styles.chart} mt-4 mb-1`}>
-                      <Bar data={data} options={options} />
+                    <div>
+                      <button className={`${styles.btn} px-3 py-1`} type="">
+                        Last 7 days{" "}
+                        <IoMdArrowDropdown
+                          style={{ color: "white", fontSize: "20px" }}
+                        />
+                      </button>
                     </div>
                   </div>
-                </div>
-                <div className="col-md-5 pe-4">
-                  <div className={`${styles.cardBottom} p-4`}>
-                    <div className="">
-                      <h6>Scans by location</h6>
-                    </div>
-                    <div className="d-flex align-items-center justify-content-center h-100">
-                      <p>no data here to show</p>
-                    </div>
+                  <div className="d-flex align-items-center justify-content-center h-100">
+                    <p>no data here to show</p>
                   </div>
                 </div>
               </div>
             </div>
-          </Scrollbar>
+            {/* ================================= */}
+            <div className="row mt-5 mb-5">
+              <div className="col-md-7 pe-4">
+                <div className={`${styles.cardBottom} p-4`}>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div>
+                      <h6>Total project clicks</h6>
+                    </div>
+                    <div>
+                      <button className={`${styles.btn} px-3 py-1`} type="">
+                        Last 7 days{" "}
+                        <IoMdArrowDropdown
+                          style={{ color: "white", fontSize: "20px" }}
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div className={`${styles.chart} mt-4 mb-1`}>
+                    <Bar data={data} options={options} />
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-5 pe-4">
+                <div className={`${styles.cardBottom} p-4`}>
+                  <div className="">
+                    <h6>Scans by location</h6>
+                  </div>
+                  <div className="d-flex align-items-center justify-content-center h-100">
+                    <p>no data here to show</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

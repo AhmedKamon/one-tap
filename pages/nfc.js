@@ -1,11 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import { GoPlus } from "react-icons/go";
-import { Scrollbar } from "react-scrollbars-custom";
 import Navbar from "../components/navbar/navbar";
 import Sidebar from "../components/sidebar/sidebar";
 import "../styles/nfc.module.css";
-import styles from "../styles/nfc.module.css";
 import qr from "../utilites/images/001-qr-code -black.svg";
 import logo from "../utilites/images/001-water-drop.svg";
 
@@ -16,7 +14,7 @@ const Nfc = () => {
         <div className="col-md-2">
           <Sidebar />
         </div>
-        <div className="col-md-10">
+        <div className="col-md-10 vh-100 scroll">
           <Navbar />
           <div className="pe-2 mb-5">
             <div className="m-5 pt-4 boxShadow p-3 mb-5 bg-body rounded p-5">

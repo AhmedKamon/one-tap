@@ -9,7 +9,7 @@ const Projects = () => {
         <div className="col-md-2">
           <Sidebar />
         </div>
-        <div className="col-md-10 ">
+        <div className="col-md-10 scroll vh-100">
           <Navbar />
 
           <div className="mt-5 pe-5">
@@ -35,7 +35,7 @@ const Projects = () => {
               </div>
             </div> */}
             {/* ==================== */}
-            <div className="scroll">
+            <div>
               <div className="bg-project p-5">
                 <div className="ps-4">
                   <h6 className="fw-bold">ALL PROJECTS</h6>

@@ -1,13 +1,13 @@
-import React from 'react';
-import Image from 'next/image';
-import Navbar from '../components/navbar/navbar';
-import Sidebar from '../components/sidebar/sidebar';
-import styles from '../styles/qrCodes.module.css';
-import QRCode from '../utilites/images/001-qr-code.svg';
-import { GoPlus } from 'react-icons/go';
-import { BiPlusMedical } from 'react-icons/bi';
-import { FiMoreVertical } from 'react-icons/fi';
-import { FaDownload } from 'react-icons/fa';
+import Image from "next/image";
+import React from "react";
+import { BiPlusMedical } from "react-icons/bi";
+import { FaDownload } from "react-icons/fa";
+import { FiMoreVertical } from "react-icons/fi";
+import { GoPlus } from "react-icons/go";
+import Navbar from "../components/navbar/navbar";
+import Sidebar from "../components/sidebar/sidebar";
+import styles from "../styles/qrCodes.module.css";
+import QRCode from "../utilites/images/001-qr-code.svg";
 
 const QrCodes = () => {
   return (
@@ -16,7 +16,7 @@ const QrCodes = () => {
         <div className="col-md-3">
           <Sidebar />
         </div>
-        <div className="col-md-9 ">
+        <div className="col-md-9 vh-100 scroll">
           <Navbar />
           <div className="bg-white mt-5 pb-5">
             <div
@@ -37,18 +37,18 @@ const QrCodes = () => {
                 <h6
                   className={` text-center cursor-poiter px-3 py-2`}
                   style={{
-                    color: '#FFFFFF',
-                    backgroundColor: '#004CD4',
+                    color: "#FFFFFF",
+                    backgroundColor: "#004CD4",
                   }}
                 >
                   <GoPlus
                     className="me-2"
                     style={{
-                      fontSize: '20px',
-                      fontWeight: 'bold',
+                      fontSize: "20px",
+                      fontWeight: "bold",
                     }}
                   />
-                  CREATE QR CODE{' '}
+                  CREATE QR CODE{" "}
                 </h6>
               </div>
             </div>
