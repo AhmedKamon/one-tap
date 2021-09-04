@@ -1,30 +1,29 @@
-import React from "react";
-import { FiArrowRightCircle } from "react-icons/fi";
-import styles from "./card.module.css";
+import React from 'react';
+import { FiArrowRightCircle } from 'react-icons/fi';
+import styles from './card.module.css';
 
 const cardData = [
   {
     id: 1,
-    title: "FREE PLAN",
+    title: 'FREE PLAN',
     price: 0,
   },
   {
     id: 2,
-    title: "PLUS PLAN",
+    title: 'PLUS PLAN',
     price: 5,
   },
   {
     id: 3,
-    title: "PRO PLAN",
+    title: 'PRO PLAN',
     price: 15,
   },
   {
     id: 4,
-    title: "ENTERPRISE PLAN",
+    title: 'ENTERPRISE PLAN',
     price: 15,
   },
 ];
-console.log(cardData[3]);
 
 const Card = () => {
   return (
@@ -39,16 +38,17 @@ const Card = () => {
 
       {/* card start */}
 
-      <div className="d-flex">
+      <div className="d-flex ">
         {cardData.map((data) => (
           <div
+            key={data.id}
             className={`${styles.cardStyle} mt-4 mb-2 ${
-              data.id === 4 ? `${styles.fourthCard}` : " "
+              data.id === 4 ? `${styles.fourthCard}` : ' '
             }`}
           >
             <h1
               className={`${
-                data.id === 4 ? `${styles.title}` : "text-primary "
+                data.id === 4 ? `${styles.title}` : 'text-primary '
               } text-center mt-5 fs-22 fw-bold  lh-12`}
             >
               {data.title}
@@ -82,7 +82,7 @@ const Card = () => {
             </div>
             <div className="d-flex justify-content-center">
               <button
-                className={`px-4 ${
+                className={`px-4 mb-4 ${
                   data.id === 4 ? `btn btn-light` : "btn btn-primary"
                 }`}
               >

@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -16,56 +17,53 @@ a {
 }
 
 /* //projects */
-.main-bg{
-  background-color: #F3F5F7;
+.main-bg {
+  background-color: #f3f5f7;
 }
 
-.projectInput{
+.projectInput {
   border: none;
-  background-color: #E8F0FF;
-  color: #004CD4;
+  background-color: #e8f0ff;
+  color: #004cd4;
   width: 100%;
   padding: 10px 15px;
   position: relative;
 }
 
-.searchIcon{
+.searchIcon {
   position: absolute;
   right: 10px;
   top: 20%;
   z-index: 10;
   font-size: 25px;
-  color: #004CD4;
+  color: #004cd4;
   border-radius: 10px;
 }
 
-.project-btn{
+.project-btn {
   border: none;
   cursor: pointer;
-  background-color:#004CD4 ;
+  background-color: #004cd4;
   padding: 10px 30px;
   color: white;
   width: 70%;
+  border-radius: 5px;
 }
 
-.bg-project{
+.bg-project {
   margin-top: 50px;
-  background-color: #E8F0FF;
+  background-color: #e8f0ff;
   border-radius: 15px;
 }
 
-
-
-.projectCardItems{
-  color: #564ACB;
+.projectCardItems {
   font-size: 12px;
 }
 
-.projectCardItem{
-  height: 200px;
-  margin: 20px;
+.projectCardItem {
+  margin: 0px 20px;
+  height: 255px;
   background-color: white;
-  color: #564ACB;
   font-size: 12px;
   display: flex;
   flex-direction: column;
@@ -73,65 +71,79 @@ a {
   align-items: center;
 }
 
-.main{
+.main {
   height: 100vh;
   position: relative;
 }
 
-
-.cursor-poiter{
+.cursor-poiter {
   cursor: pointer;
 }
 
 /* ======= */
-.textColor{
-  color: #004CD4;
+.textColor {
+  color: #004cd4;
 }
-
 
 /*  font sizes === */
 
-.lh-12{
-  line-height: 12px
+.lh-12 {
+  line-height: 12px;
 }
-.fs-16{
+.fs-16 {
   font-size: 16px;
 }
-.fs-18{
+.fs-18 {
   font-size: 18px;
 }
-.fs-22{
+.fs-22 {
   font-size: 22px;
 }
-.fs-20{
+.fs-20 {
   font-size: 20px;
 }
-.fs-24{
+.fs-24 {
   font-size: 24px;
 }
-.fs-25{
+.fs-25 {
   font-size: 25px;
 }
-.fs-30{
+.fs-30 {
   font-size: 30px;
 }
-.fs-46{
+.fs-46 {
   font-size: 46px;
 }
-.fs-55{
+.fs-55 {
   font-size: 55px;
 }
 
 /* line height ===== */
-.lh-12{
+.lh-12 {
   line-height: 12px;
 }
-.lh-26{
+.lh-26 {
   line-height: 26px;
 }
-.lh-66{
+.lh-66 {
   line-height: 66px;
 }
 
+.scroll {
+  overflow-y: scroll;
+}
 
+/* customizing scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f8f9fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+}

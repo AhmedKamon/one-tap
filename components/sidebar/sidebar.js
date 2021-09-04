@@ -20,7 +20,7 @@ const Sidebar = () => {
         <ul className={`${styles.sideBarLogo} navbar-nav container`}>
           {data.map((logo) => (
             <li key={logo.id} className={`nav-item ms-3 `}>
-              <div className=" d-flex align-items-center mt-3 ms-3">
+              <div className=" d-flex align-items-center mt-4 ms-3">
                 <Link href={logo.link}>
                   <a className="me-3 fs-16 mt-1">
                     <Image src={logo.logo} height="20" width="20" alt="logo" />
@@ -38,7 +38,9 @@ const Sidebar = () => {
             <span>
               <BsStarFill className="me-2 " style={{ fontSize: '29px' }} />
             </span>
-            <span className="fs-18">UPGRADE NOW</span>
+            <Link href="/cards" className="fs-18">
+              UPGRADE NOW
+            </Link>
           </div>
         </div>
       </div>

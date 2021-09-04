@@ -62,11 +62,5 @@ export const data = [
     logo: image9,
     name: 'Help',
     link: '/help',
-  },
-  {
-    id: 10,
-    logo: image9,
-    name: 'Card',
-    link: '/cards',
-  },
+  }
 ];

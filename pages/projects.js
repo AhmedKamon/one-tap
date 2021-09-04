@@ -1,9 +1,7 @@
-import { FaSearch } from 'react-icons/fa';
 import Navbar from '../components/navbar/navbar';
 import Sidebar from '../components/sidebar/sidebar';
 import { projectData } from '../utilites/projectData';
-import { Scrollbar } from 'react-scrollbars-custom';
-import NextLink from 'next/link';
+import { FaSearch } from 'react-icons/fa';
 
 const Projects = () => {
   return (
@@ -12,11 +10,10 @@ const Projects = () => {
         <div className="col-md-2">
           <Sidebar />
         </div>
-        <div className="col-md-10 ">
+        <div className="col-md-10 scroll vh-100 ">
           <Navbar />
-
-          <div className="mt-5 pe-5">
-            {/* <div className="d-flex justify-content-between">
+          <div className=" my-5 mx-5 vw-75">
+            <div className="d-flex justify-content-between">
               <div className="col-md-6  position-relative ">
                 <input
                   className={`projectInput form-control`}
@@ -36,12 +33,12 @@ const Projects = () => {
                   Last 7 days
                 </button>
               </div>
-            </div> */}
+            </div>
             {/* ==================== */}
-            <div className="scroll">
+            <div>
               <div className="bg-project p-5">
                 <div className="ps-4">
-                  <h6 className="fw-bold">ALL PROJECTS</h6>
+                  <h6 className="fs-18 lh-12 fw-bold">ALL PROJECTS</h6>
                 </div>
                 <div className="row">
                   {projectData.map((item) => (
@@ -49,25 +46,25 @@ const Projects = () => {
                       key={item.id}
                       className="col-md-3  my-3 projectCardItems"
                     >
-                      <a href={item.link}>
-                        <div className="h-75">
-                          <div className=" projectCardItem text-center ">
-                            <span style={{ fontSize: '50px' }}>
-                              {item.icon}
-                            </span>
-
-                            <p>{item.tittle}</p>
-                          </div>
-                          <div
-                            className="d-flex justify-content-between "
-                            style={{
-                              fontSize: '13px',
-                              margin: '0px 0px 0px 20px',
-                            }}
+                      <a href={item.link} className="" style={{}}>
+                        <div className=" text-center projectCardItem">
+                          <span
+                            className="color-text"
+                            style={{ fontSize: '50px' }}
                           >
-                            <p>{item.detail}</p>
-                            <p>{item.date}</p>
-                          </div>
+                            {item.icon}
+                          </span>
+
+                          <p>{item.tittle}</p>
+                        </div>
+                        <div
+                          className=" mt-3 d-flex justify-content-center "
+                          style={{
+                            fontSize: '13px',
+                          }}
+                        >
+                          <p className="me-3">{item.detail}</p>
+                          <p>{item.date}</p>
                         </div>
                       </a>
                     </div>
