@@ -3,7 +3,8 @@ import demo from '../utilites/images/damo.svg';
 import Image from 'next/image';
 import Sidebar from '../components/sidebar/sidebar';
 import Navbar from '../components/navbar/navbar';
-const Media = () => {
+
+const Integrations = () => {
   return (
     <div className="container vh-100">
       <div className="row">
@@ -26,4 +27,4 @@ const Media = () => {
   );
 };
 
-export default Media;
+export default Integrations;

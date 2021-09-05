@@ -7,10 +7,10 @@ import styles from './navbar.module.css';
 const Navbar = () => {
   return (
     <div className=" mx-3 mt-5 mb-3">
-      <div className="row d-flex align-items-center mx-2">
+      <div className="row d-flex align-items-center ">
         <div className="col-md-6">
           <div className="d-flex align-items-center">
-            <h6 className="me-5 fw-bold fs-30 lh-26">Hello Kamon</h6>
+            <h6 className="me-4 fw-bold fs-30 lh-26">Hello Kamon</h6>
             <button
               className={`${styles.btn} d-flex align-items-center justify-content-center`}
             >
@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="col-md-6 ">
           <div className="d-flex align-items-center justify-content-center mt-1">
             <span>
-              <button className={`${styles.Invitebtn} me-4`}>
+              <button className={`${styles.Invitebtn} px-3 py-2 me-3`}>
                 Invite A Friend
               </button>
             </span>

@@ -1,127 +1,150 @@
 import Image from 'next/image';
 import React from 'react';
-import { BiPlusMedical } from 'react-icons/bi';
-import { FaDownload } from 'react-icons/fa';
-import { FiMoreVertical } from 'react-icons/fi';
-import { GoPlus } from 'react-icons/go';
+import logo from '../utilites/images/001-qr-code -black.svg';
+import { useState } from 'react';
+import { BsUpload } from 'react-icons/bs';
+import { IoIosArrowDown } from 'react-icons/io';
 import Navbar from '../components/navbar/navbar';
 import Sidebar from '../components/sidebar/sidebar';
 import styles from '../styles/qrCodes.module.css';
-import QRCode from '../utilites/images/001-qr-code.svg';
 
 const QrCodes = () => {
+  const [selectedColor, setSelectedColor] = useState('#000');
   return (
     <div className="container vh-100">
       <div className="row">
-        <div className="col-md-2">
+        <div className="col-md-3">
           <Sidebar />
         </div>
-        <div className="col-md-10 vh-100 scroll">
+        <div className="col-md-9 vh-100 scroll">
           <Navbar />
-          <div className="bg-white mt-5 pb-5">
-            <div
-              className={`d-flex justify-content-between align-items-center px-5 pt-4`}
-            >
-              <div className="d-flex align-items-center">
-                <div className="me-3">
-                  <Image src={QRCode} height="20" width="20" alt="qrCode" />
+          {/* ======= */}
+          <div className=" row mt-5 pb-5 me-3">
+            <div className="col-md-6 ">
+              <h3 className="fs-30 lh-27 fw-bold">Create a new QR Code</h3>
+              <h6 className="mt-4 fs-23 lh-27">Name my code (optional)</h6>
+              <input
+                className={`${styles.qrInput} form-control mt-3`}
+                type="text"
+                placeholder="enter your project name"
+                name="enter your project name"
+              />
+              <div className="text-center mt-4">
+                <h6
+                  className="mt-2 mb-5 fs-23 lh-13 fw-bold"
+                  style={{ color: '#004CD4' }}
+                >
+                  Preview
+                </h6>
+                <Image src={logo} height="300" width="300" alt="logo" />
+              </div>
+              <h6 className="mt-4 fs-23 lh-27">
+                I want my QR code to scan to:
+              </h6>
+              <p className="mt-1 fs-28 lh-26">Enter or Paste a link</p>
+              <input
+                className={`${styles.qrInput} form-control mt-3`}
+                type="text"
+                placeholder="https://www.linkedin.com/in/kawsar-dev/"
+                name="https://www.linkedin.com/in/kawsar-dev/"
+              />
+            </div>
+            <div className="col-md-5 p-2 my-5" style={{ width: '350px' }}>
+              <h6 className={`${styles.title} fs-23 lh-13 py-3 px-3`}>
+                Select a Template
+              </h6>
+              <div className="d-flex justify-content-between my-4">
+                <div className="p-2 text-center">
+                  <Image src={logo} height="100" width="100" alt="logo" />
+                  <p className={`${styles.temp} mt-3 px-2 py-2 fs-13 lh-10`}>
+                    Default template
+                  </p>
                 </div>
-                <div>
-                  <h6 className={`${styles.textColor} fw-bold`}>
-                    QR codes (1)
-                  </h6>
+                <div className="p-2 text-center">
+                  <Image src={logo} height="100" width="100" alt="logo" />
+                  <p className={`${styles.temp} mt-3 px-2 py-2 fs-13 lh-10`}>
+                    Circular
+                  </p>
                 </div>
               </div>
+              <h6 className={`${styles.title} fs-23 lh-13 py-3 px-3`}>
+                Image File
+              </h6>
+              <button
+                className="w-100 border-0 bg-white my-2 px-2 py-3 fw-bold"
+                type=""
+                style={{ color: '#004CD4' }}
+              >
+                <BsUpload style={{ fontSize: '25px' }} className="me-3 " />
+                Upload File
+              </button>
+              <p
+                className="my-2 fw-bold fs-18 lh-12 "
+                style={{ color: '#004CD4' }}
+              >
+                QR Colors
+              </p>
+              <div className="d-flex align-items-center justify-content-between">
+                <div className="col-6">
+                  <input
+                    className="bg-white"
+                    style={{
+                      border: 'none',
+                      width: '140px',
+                      height: '40px',
+                      borderRadius: '10px',
+                    }}
+                    onChange={(e) => setSelectedColor(e.target.value)}
+                    type="color"
+                    name=""
+                    value=""
+                  />
+                </div>
 
-              <div className="">
+                <div className="col-6">
+                  <p
+                    className="text-white text-center mt-2 pt-2"
+                    style={{
+                      backgroundColor: `${selectedColor}`,
+                      width: '140px',
+                      height: '40px',
+                      borderRadius: '5px',
+                    }}
+                  >
+                    {selectedColor}
+                  </p>
+                </div>
+              </div>
+              <div>
                 <h6
-                  className={` text-center cursor-poiter px-3 py-2`}
+                  className={`mt-2 text-center px-2 py-3 fs-17 lh-28`}
+                  style={{
+                    color: '#004CD4',
+                    backgroundColor: '#E8F0FF',
+                  }}
+                >
+                  SAVE FOR ART BOARD
+                </h6>
+                <h6
+                  className={`mt-2 text-center px-2 py-3 cursor-poiter fs-14 lh-23`}
                   style={{
                     color: '#FFFFFF',
                     backgroundColor: '#004CD4',
                   }}
                 >
-                  <GoPlus
-                    className="me-2"
+                  CREATE AND DOWNLOAD QR CODE{' '}
+                  <IoIosArrowDown
+                    className="ms-3"
                     style={{
-                      fontSize: '20px',
+                      fontSize: '25px',
                       fontWeight: 'bold',
                     }}
                   />
-                  CREATE QR CODE{' '}
                 </h6>
               </div>
             </div>
-            <hr />
-            {/* ================================================================== */}
-            {/* ================================================================== */}
-            <div className={`${styles.card} m-4 mt-5 rounded-3 shadow-sm`}>
-              <div className="row px-4 py-2">
-                <div className="col-md-3 d-flex justify-content-center align-items-center ">
-                  <div>
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="checkboxNoLabel"
-                      value=""
-                      aria-label="..."
-                    />
-                  </div>
-                  <div className="ms-5">
-                    <Image src={QRCode} height="90" width="90" alt="qrCode" />
-                  </div>
-                </div>
-                <div className="col-md-6  d-flex justify-content-start align-items-center">
-                  <div className="me-5">
-                    <h3 className="fs-22 lh-12 textColor fw-bold my-3">
-                      WEBSITE 10/08/2021
-                    </h3>
-                    <div className="row">
-                      <div className="col-md-3">
-                        <p className="m-0 ">Link:</p>
-                        <p className="m-0 ">Org:</p>
-                        <p className="m-0 ">Created:</p>
-                        <p className="m-0 ">Labels:</p>
-                      </div>
-                      <div className="col-md-8">
-                        <p className="m-0 ">https://qrcodes.pro/eLGyzc</p>
-                        <p className="m-0 ">Master organization</p>
-                        <p className="m-0 ">August 10, 2021</p>
-                        <p className="m-0 ">--</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="d-flex flex-column  justify-content-center align-items-center">
-                    <Image src={QRCode} height="40" width="40" alt="qrCode" />
-                    <h6 className="mt-3 fw-bold textColor">0</h6>
-                    <h6 className=" fw-bold textColor">Scans</h6>
-                  </div>
-                </div>
-
-                <div className="col-md-3 py-5 ps-5 pe-3">
-                  <button
-                    type=""
-                    className={`${styles.btn} d-flex justify-content-between align-items-center px-4 py-2 text-primary  rounded-3 mt-2 w-100`}
-                  >
-                    <span>
-                      <BiPlusMedical className={`${styles.iconColor} me-2`} />
-                      <span>Edit</span>
-                    </span>
-                    <FiMoreVertical className={`${styles.iconColor}`} />
-                  </button>
-                  <button
-                    type=""
-                    className={`${styles.btn} d-flex justify-content-between align-items-center px-4 py-2 text-primary  rounded-3 mt-2 w-100`}
-                  >
-                    <FaDownload className={`${styles.iconColor} me-3 `} />
-                    <span className="">Download</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            {/* ================================================================== */}
-            {/* ================================================================== */}
           </div>
+          {/* ======= */}
         </div>
       </div>
     </div>

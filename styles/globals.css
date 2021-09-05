@@ -44,7 +44,6 @@ a {
   border: none;
   cursor: pointer;
   background-color: #004cd4;
-  padding: 10px 30px;
   color: white;
   width: 70%;
   border-radius: 5px;
@@ -61,8 +60,9 @@ a {
 }
 
 .projectCardItem {
-  margin: 0px 20px;
   height: 255px;
+  /* width: 173px; */
+  width: 90%;
   background-color: white;
   font-size: 12px;
   display: flex;
@@ -105,11 +105,20 @@ a {
 .fs-24 {
   font-size: 24px;
 }
+.fs-23 {
+  font-size: 23px;
+}
+.fs-27 {
+  font-size: 27px;
+}
 .fs-25 {
   font-size: 25px;
 }
 .fs-30 {
   font-size: 30px;
+}
+.fs-33 {
+  font-size: 33px;
 }
 .fs-46 {
   font-size: 46px;
@@ -122,8 +131,17 @@ a {
 .lh-12 {
   line-height: 12px;
 }
+.lh-13 {
+  line-height: 13px;
+}
 .lh-26 {
   line-height: 26px;
+}
+.lh-27 {
+  line-height: 27px;
+}
+.lh-28 {
+  line-height: 28px;
 }
 .lh-66 {
   line-height: 66px;

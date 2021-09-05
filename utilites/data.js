@@ -62,5 +62,5 @@ export const data = [
     logo: image9,
     name: 'Help',
     link: '/help',
-  }
+  },
 ];

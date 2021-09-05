@@ -1,16 +1,15 @@
-import Image from 'next/image';
+import React from 'react';
 import Navbar from '../components/navbar/navbar';
 import Sidebar from '../components/sidebar/sidebar';
-import styles from '../styles/qrCodeTemplate.module.css';
+import Image from 'next/image';
 import { BiPlusMedical } from 'react-icons/bi';
 import { FaDownload } from 'react-icons/fa';
 import { FiMoreVertical } from 'react-icons/fi';
 import { GoPlus } from 'react-icons/go';
 import QRCode from '../utilites/images/001-qr-code.svg';
-import qr from '../utilites/images/001-qr-code -black.svg';
-import logo from '../utilites/images/001-water-drop.svg';
+import styles from '../styles/createTemplate.module.css';
 
-const QrCodeTemplate = () => {
+const CreateTemplate = () => {
   return (
     <div className="container vh-100">
       <div className="row">
@@ -19,74 +18,7 @@ const QrCodeTemplate = () => {
         </div>
         <div className="col-md-9 vh-100 scroll">
           <Navbar />
-          {/* =========== */}
-
-          <div
-            className={`${styles.card} mt-5 mb-5 pt-4 px-5 me-5 ms-1  boxShadow  bg-body rounded shadow-sm`}
-          >
-            <div className="d-flex align-items-center">
-              <div>
-                <Image src={logo} alt="logo" />
-              </div>
-              <div>
-                <h6
-                  className="ms-4 fw-bold fs-22 lh-26"
-                  style={{ color: '#004CD4' }}
-                >
-                  QR code templates (3)
-                </h6>
-              </div>
-            </div>
-            <div className="d-flex my-4">
-              <div className="p-2 text-center">
-                <Image src={qr} height="80" width="80" alt="logo" />
-                <a href="/createTemplate">
-                  <p className="mt-3 px-3 py-2 fs-16 lh-12 fw-bold border">
-                    Default template
-                  </p>
-                </a>
-              </div>
-              <div className="p-2 text-center ms-5">
-                <Image src={qr} height="80" width="80" alt="logo" />
-                <a href="/createTemplate">
-                  <p className={` mt-3 px-3 py-2 fs-16 lh-12 fw-bold border`}>
-                    Circular
-                  </p>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`${styles.card} pt-4 px-5 py-5 me-5 ms-1 boxShadow  bg-body rounded shadow-sm`}
-          >
-            <div className="d-flex justify-content-between pb-5">
-              <div className="d-flex align-items-center pb-5">
-                <div>
-                  <Image src={logo} alt="logo" />
-                </div>
-                <div>
-                  <h6
-                    className="ms-4 fw-bold fs-22 lh-26"
-                    style={{ color: '#004CD4' }}
-                  >
-                    Landing Page (3)
-                  </h6>
-                </div>
-              </div>
-              <div>
-                <h6
-                  className="text-white fw-bold px-3 py-2 rounded fs-16 lh-12"
-                  style={{ backgroundColor: '#004CD4' }}
-                >
-                  <GoPlus className="me-2" style={{ fontSize: '25px' }} />{' '}
-                  CREATE LANDING PAGE
-                </h6>
-              </div>
-            </div>
-          </div>
-
-          {/* ====== */}
-          {/* <div className="bg-white mt-5 pb-5">
+          <div className="bg-white  mt-5 me-5 ms-1 pb-3">
             <div
               className={`d-flex justify-content-between align-items-center px-5 pt-4`}
             >
@@ -95,7 +27,7 @@ const QrCodeTemplate = () => {
                   <Image src={QRCode} height="20" width="20" alt="qrCode" />
                 </div>
                 <div>
-                  <h6 className={`${styles.textColor} fw-bold`}>
+                  <h6 className="fw-bold fs-18 lh-26 textColor">
                     QR codes (1)
                   </h6>
                 </div>
@@ -103,7 +35,7 @@ const QrCodeTemplate = () => {
 
               <div className="">
                 <h6
-                  className={` text-center cursor-poiter px-3 py-2`}
+                  className={` text-center cursor-poiter px-3 py-2 fs-16 lh-12`}
                   style={{
                     color: '#FFFFFF',
                     backgroundColor: '#004CD4',
@@ -122,7 +54,7 @@ const QrCodeTemplate = () => {
             </div>
             <hr />
 
-            <div className={`${styles.card} m-4 mt-5 rounded-3 shadow-sm`}>
+            <div className={`${styles.card} my-5 mx-4 rounded-3 shadow-sm`}>
               <div className="row px-4 py-2">
                 <div className="col-md-3 d-flex justify-content-center align-items-center ">
                   <div>
@@ -145,23 +77,23 @@ const QrCodeTemplate = () => {
                     </h3>
                     <div className="row">
                       <div className="col-md-3">
-                        <p className="m-0 ">Link:</p>
-                        <p className="m-0 ">Org:</p>
-                        <p className="m-0 ">Created:</p>
-                        <p className="m-0 ">Labels:</p>
+                        <p className="m-0 fs-16">Link:</p>
+                        <p className="m-0 fs-16">Org:</p>
+                        <p className="m-0 fs-16">Created:</p>
+                        <p className="m-0 fs-16">Labels:</p>
                       </div>
                       <div className="col-md-8">
-                        <p className="m-0 ">https://qrcodes.pro/eLGyzc</p>
-                        <p className="m-0 ">Master organization</p>
-                        <p className="m-0 ">August 10, 2021</p>
-                        <p className="m-0 ">--</p>
+                        <p className="m-0 fs-16">https://qrcodes.pro/eLGyzc</p>
+                        <p className="m-0 fs-16">Master organization</p>
+                        <p className="m-0 fs-16">August 10, 2021</p>
+                        <p className="m-0 fs-16">--</p>
                       </div>
                     </div>
                   </div>
                   <div className="d-flex flex-column  justify-content-center align-items-center">
                     <Image src={QRCode} height="40" width="40" alt="qrCode" />
-                    <h6 className="mt-3 fw-bold textColor">0</h6>
-                    <h6 className=" fw-bold textColor">Scans</h6>
+                    <h6 className="mt-3 fw-bold textColor fs-18 lh-26">0</h6>
+                    <h6 className=" fw-bold textColor fs-18 lh-26">Scans</h6>
                   </div>
                 </div>
 
@@ -172,7 +104,7 @@ const QrCodeTemplate = () => {
                   >
                     <span>
                       <BiPlusMedical className={`${styles.iconColor} me-2`} />
-                      <span>Edit</span>
+                      <span className="fs-12 lh-16">Edit</span>
                     </span>
                     <FiMoreVertical className={`${styles.iconColor}`} />
                   </button>
@@ -181,17 +113,16 @@ const QrCodeTemplate = () => {
                     className={`${styles.btn} d-flex justify-content-between align-items-center px-4 py-2 text-primary  rounded-3 mt-2 w-100`}
                   >
                     <FaDownload className={`${styles.iconColor} me-3 `} />
-                    <span className="">Download</span>
+                    <span className="fs-12 lh-16">Download</span>
                   </button>
                 </div>
               </div>
             </div>
-          </div> */}
-          {/* ====== */}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default QrCodeTemplate;
+export default CreateTemplate;

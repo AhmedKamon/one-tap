@@ -46,12 +46,12 @@ const options = {
 
 const Analytics = () => {
   return (
-    <div className="container vh-100">
+    <div className="container">
       <div className="row">
-        <div className="col-md-2">
+        <div className="col-md-3">
           <Sidebar />
         </div>
-        <div className="col-md-10 vh-100 scroll ">
+        <div className="col-md-9 vh-100 scroll ">
           <Navbar />
           <div className="mt-5">
             <div className="row">

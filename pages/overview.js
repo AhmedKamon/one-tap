@@ -1,16 +1,16 @@
-import React from "react";
-import Navbar from "../components/navbar/navbar";
-import Sidebar from "../components/sidebar/sidebar";
+import React from 'react';
+import Navbar from '../components/navbar/navbar';
+import Sidebar from '../components/sidebar/sidebar';
 const array = [1, 2, 3, 4];
 
 const Overview = () => {
   return (
     <div className="container vh-100">
       <div className="row">
-        <div className="col-md-2">
+        <div className="col-md-3">
           <Sidebar />
         </div>
-        <div className="col-md-10 vh-100 scroll">
+        <div className="col-md-9 vh-100 scroll">
           <Navbar />
           <div className="row my-5">
             {array.map((test) => (

@@ -1,19 +1,21 @@
-.qrInput {
-  border: none;
-  background-color: #e8f0ff;
-  color: #004cd4;
-  width: 100%;
-  padding: 7px 15px;
-  position: relative;
+
+/* ======= */
+.iconColor{
+  color: #004CD4;
 }
-.title {
-  background-color: #004cd4;
-  padding: 13px 10px;
-  color: white;
-  font-weight: 500;
-  border-radius: 5px;
+.card{
+  border: 1px solid #E6E6E6;
 }
-.temp {
-  background-color: #e8f0ff;
-  color: #004cd4;
+.card:hover{
+  border: 1px solid #004CD480;
+}
+.card > button{
+  background-color: yellow !important
+}
+.btn{
+  background-color: white;
+  border: 1px solid #E6E6E6;
+}
+.btn:hover{
+  border: 1px solid #004CD4;
 }
