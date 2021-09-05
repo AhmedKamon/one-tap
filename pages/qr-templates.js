@@ -9,6 +9,7 @@ import { GoPlus } from 'react-icons/go';
 import QRCode from '../utilites/images/001-qr-code.svg';
 import qr from '../utilites/images/001-qr-code -black.svg';
 import logo from '../utilites/images/001-water-drop.svg';
+import Link from 'next/link';
 
 const QrCodeTemplate = () => {
   return (
@@ -40,19 +41,24 @@ const QrCodeTemplate = () => {
             <div className="d-flex my-4">
               <div className="p-2 text-center">
                 <Image src={qr} height="80" width="80" alt="logo" />
-                <a href="/createTemplate">
-                  <p className="mt-3 px-3 py-2 fs-16 lh-12 fw-bold border">
-                    Default template
-                  </p>
-                </a>
+                <Link href="/createTemplate">
+                  <a>
+                    <p className="mt-3 px-3 py-2 fs-16 lh-12 fw-bold border">
+                      Default template
+                    </p>
+                  </a>
+                </Link>
               </div>
               <div className="p-2 text-center ms-5">
                 <Image src={qr} height="80" width="80" alt="logo" />
-                <a href="/createTemplate">
-                  <p className={` mt-3 px-3 py-2 fs-16 lh-12 fw-bold border`}>
-                    Circular
-                  </p>
-                </a>
+                <Link href="/createTemplate">
+                  <a>
+                    {' '}
+                    <p className={` mt-3 px-3 py-2 fs-16 lh-12 fw-bold border`}>
+                      Circular
+                    </p>
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
