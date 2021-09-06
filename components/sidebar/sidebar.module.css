@@ -1,37 +1,34 @@
 .main {
-    background-color: #004CD4;
-    height: 100vh;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    
+  background-color: #004cd4;
+  height: 100vh;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
 }
-.sideBarLogo{
-    margin-top: 30px;
-    color: #86A6F4;
+.sideBarLogo {
+  margin-top: 30px;
+  color: #86a6f4;
 }
-.oneTap{
-    cursor: pointer;
-    
+.oneTap {
+  cursor: pointer;
 }
 
-.singleLogo:hover{
-    color: white;
-    cursor: pointer;
+.singleLogo:hover {
+  color: white;
+  cursor: pointer;
 }
-.upgrade{
-    background-color: white;
-    height: 50px;
-    margin-top: auto;
-    margin-bottom: 15%;
-    text-transform: uppercase;
+.upgrade {
+  height: 50px;
+  margin-top: auto;
+  margin-bottom: 15%;
+  text-transform: uppercase;
 }
-.btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: white;
-    color: #FFB229;
-
+.btn {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: white;
+  color: #ffb229;
 }

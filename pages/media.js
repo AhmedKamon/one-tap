@@ -1,8 +1,9 @@
-import React from 'react';
-import demo from '../utilites/images/damo.svg';
-import Image from 'next/image';
-import Sidebar from '../components/sidebar/sidebar';
-import Navbar from '../components/navbar/navbar';
+import Image from "next/image";
+import React from "react";
+import Navbar from "../components/navbar/navbar";
+import About from "../components/qrCode/qrcode";
+import Sidebar from "../components/sidebar/sidebar";
+import demo from "../utilites/images/damo.svg";
 const Media = () => {
   return (
     <div className="container vh-100">
@@ -20,6 +21,7 @@ const Media = () => {
             width={640}
             layout="responsive"
           />
+          <About />
         </div>
       </div>
     </div>
