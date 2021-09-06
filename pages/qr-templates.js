@@ -10,8 +10,11 @@ import QRCode from '../utilites/images/001-qr-code.svg';
 import qr from '../utilites/images/001-qr-code -black.svg';
 import logo from '../utilites/images/001-water-drop.svg';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const QrCodeTemplate = () => {
+  const [text, setText] = useState('');
+  const [imageURL, setImageURL] = useState(null);
   return (
     <div className="container vh-100">
       <div className="row">

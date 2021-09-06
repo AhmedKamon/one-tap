@@ -7,9 +7,27 @@ import { IoIosArrowDown } from 'react-icons/io';
 import Navbar from '../components/navbar/navbar';
 import Sidebar from '../components/sidebar/sidebar';
 import styles from '../styles/qrCodes.module.css';
+import qrcode from 'qrcode.react';
+import QRcode from 'qrcode.react';
 
 const QrCodes = () => {
+  const [text, setText] = useState('kamon');
   const [selectedColor, setSelectedColor] = useState('#000');
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+  const downloadQR = () => {
+    const canvas = document.getElementById('myqr');
+    const pngUrl = canvas
+      .toDataURL('image/png')
+      .replace('image/png', 'image/octet-stream');
+    let downloadLink = document.createElement('a');
+    downloadLink.href = pngUrl;
+    downloadLink.download = 'myqr.png';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
   return (
     <div className="container vh-100">
       <div className="row">
@@ -26,8 +44,11 @@ const QrCodes = () => {
               <input
                 className={`${styles.qrInput} form-control mt-3`}
                 type="text"
-                placeholder="enter your project name"
-                name="enter your project name"
+                value={text}
+                label="QR content"
+                size="large"
+                color="primary"
+                onChange={handleChange}
               />
               <div className="text-center mt-4">
                 <h6
@@ -36,7 +57,12 @@ const QrCodes = () => {
                 >
                   Preview
                 </h6>
-                <Image src={logo} height="300" width="300" alt="logo" />
+                <QRcode
+                  id="myqr"
+                  value={text}
+                  size={320}
+                  includeMargin={true}
+                />
               </div>
               <h6 className="mt-4 fs-23 lh-27">
                 I want my QR code to scan to:
@@ -131,6 +157,7 @@ const QrCodes = () => {
                     color: '#FFFFFF',
                     backgroundColor: '#004CD4',
                   }}
+                  onClick={downloadQR}
                 >
                   CREATE AND DOWNLOAD QR CODE{' '}
                   <IoIosArrowDown
