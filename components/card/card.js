@@ -78,7 +78,7 @@ const Card = () => {
             <div className="d-flex justify-content-center">
               <button
                 className={`px-4 mb-4 ${
-                  data.id === 4 ? `btn btn-light` : "btn btn-primary"
+                  data.id === 4 ? `btn btn-light` : `btn ${styles.btnNow}`
                 }`}
               >
                 BUY NOW
