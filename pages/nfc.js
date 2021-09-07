@@ -1,15 +1,14 @@
-import Image from 'next/image';
-import React from 'react';
-import logo from '../utilites/images/001-qr-code -black.svg';
-import { useState } from 'react';
-import { BsUpload } from 'react-icons/bs';
-import { IoIosArrowDown } from 'react-icons/io';
-import Navbar from '../components/navbar/navbar';
-import Sidebar from '../components/sidebar/sidebar';
-import styles from '../styles/nfc.module.css';
+import Image from "next/image";
+import React, { useState } from "react";
+import { BsUpload } from "react-icons/bs";
+import { IoIosArrowDown } from "react-icons/io";
+import Navbar from "../components/navbar/navbar";
+import Sidebar from "../components/sidebar/sidebar";
+import styles from "../styles/nfc.module.css";
+import logo from "../utilites/images/001-qr-code -black.svg";
 
 const Nfc = () => {
-  const [selectedColor, setSelectedColor] = useState('#000');
+  const [selectedColor, setSelectedColor] = useState("#000");
   return (
     <div className="container vh-100">
       <div className="row">
@@ -18,7 +17,7 @@ const Nfc = () => {
         </div>
         <div className="col-md-9 vh-100 scroll">
           <Navbar />
-          {/* =========== */}
+          {/* ========== */}
           <div className=" row mt-5 pb-5 me-3">
             <div className="col-md-6 ">
               <h3 className="fs-30 lh-27 fw-bold">Create a new NFC Code</h3>
@@ -32,7 +31,7 @@ const Nfc = () => {
               <div className="text-center mt-4">
                 <h6
                   className="mt-2 mb-5 fs-23 lh-13 fw-bold"
-                  style={{ color: '#004CD4' }}
+                  style={{ color: "#004CD4" }}
                 >
                   Preview
                 </h6>
@@ -49,7 +48,7 @@ const Nfc = () => {
                 name="https://www.linkedin.com/in/kawsar-dev/"
               />
             </div>
-            <div className="col-md-5 p-2 my-5" style={{ width: '350px' }}>
+            <div className="col-md-5 p-2 my-5" style={{ width: "350px" }}>
               <h6 className={`${styles.title} fs-23 lh-13 py-3 px-3`}>
                 Select a Template
               </h6>
@@ -73,14 +72,14 @@ const Nfc = () => {
               <button
                 className="w-100 border-0 bg-white my-2 px-2 py-3 fw-bold"
                 type=""
-                style={{ color: '#004CD4' }}
+                style={{ color: "#004CD4" }}
               >
-                <BsUpload style={{ fontSize: '25px' }} className="me-3 " />
+                <BsUpload style={{ fontSize: "25px" }} className="me-3 " />
                 Upload File
               </button>
               <p
                 className="my-2 fw-bold fs-18 lh-12 "
-                style={{ color: '#004CD4' }}
+                style={{ color: "#004CD4" }}
               >
                 QR Colors
               </p>
@@ -89,10 +88,10 @@ const Nfc = () => {
                   <input
                     className="bg-white"
                     style={{
-                      border: 'none',
-                      width: '140px',
-                      height: '40px',
-                      borderRadius: '10px',
+                      border: "none",
+                      width: "140px",
+                      height: "40px",
+                      borderRadius: "10px",
                     }}
                     onChange={(e) => setSelectedColor(e.target.value)}
                     type="color"
@@ -106,9 +105,9 @@ const Nfc = () => {
                     className="text-white text-center mt-2 pt-2"
                     style={{
                       backgroundColor: `${selectedColor}`,
-                      width: '140px',
-                      height: '40px',
-                      borderRadius: '5px',
+                      width: "140px",
+                      height: "40px",
+                      borderRadius: "5px",
                     }}
                   >
                     {selectedColor}
@@ -119,8 +118,8 @@ const Nfc = () => {
                 <h6
                   className={`mt-2 text-center px-2 py-3 fs-17 lh-28`}
                   style={{
-                    color: '#004CD4',
-                    backgroundColor: '#E8F0FF',
+                    color: "#004CD4",
+                    backgroundColor: "#E8F0FF",
                   }}
                 >
                   SAVE FOR ART BOARD
@@ -128,16 +127,16 @@ const Nfc = () => {
                 <h6
                   className={`mt-2 text-center px-2 py-3 cursor-poiter fs-14 lh-23`}
                   style={{
-                    color: '#FFFFFF',
-                    backgroundColor: '#004CD4',
+                    color: "#FFFFFF",
+                    backgroundColor: "#004CD4",
                   }}
                 >
-                  CREATE AND DOWNLOAD QR CODE{' '}
+                  CREATE AND DOWNLOAD QR CODE{" "}
                   <IoIosArrowDown
                     className="ms-3"
                     style={{
-                      fontSize: '25px',
-                      fontWeight: 'bold',
+                      fontSize: "25px",
+                      fontWeight: "bold",
                     }}
                   />
                 </h6>
