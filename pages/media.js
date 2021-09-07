@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "node-self";
 import QRCodeStyling from "qr-code-styling";
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../components/navbar/navbar";
