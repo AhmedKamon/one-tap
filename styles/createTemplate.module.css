@@ -1,19 +1,23 @@
-.iconColor{
-    color: #004CD4;
-  }
-  .card{
-    border: 1px solid #E6E6E6;
-  }
-  .card:hover{
-    border: 1px solid #004CD480;
-  }
-  .card > button{
-    background-color: yellow !important
-  }
-  .btn{
-    background-color: white;
-    border: 1px solid #E6E6E6;
-  }
-  .btn:hover{
-    border: 1px solid #004CD4;
-  }
+.iconColor {
+  color: #004cd4;
+}
+.card {
+  border: 1px solid #e6e6e6;
+}
+.card:hover {
+  border: 1px solid #004cd480;
+}
+.card > button {
+  background-color: yellow !important;
+}
+.btn {
+  color: #000;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  transition: 0.4s;
+}
+.btn:hover {
+  border: 1px solid #004cd4;
+  color: #004cd4;
+  background-color: #e8f0ff;
+}
