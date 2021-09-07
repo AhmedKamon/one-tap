@@ -1,33 +1,83 @@
-import Image from 'next/image';
-import React from 'react';
-import logo from '../utilites/images/001-qr-code -black.svg';
-import { useState } from 'react';
-import { BsUpload } from 'react-icons/bs';
-import { IoIosArrowDown } from 'react-icons/io';
-import Navbar from '../components/navbar/navbar';
-import Sidebar from '../components/sidebar/sidebar';
-import styles from '../styles/qrCodes.module.css';
-import qrcode from 'qrcode.react';
-import QRcode from 'qrcode.react';
+import Image from "next/image";
+import QRCode from "qrcode.react";
+import React, { useState } from "react";
+import { BsUpload } from "react-icons/bs";
+import { IoIosArrowDown } from "react-icons/io";
+import Navbar from "../components/navbar/navbar";
+import Sidebar from "../components/sidebar/sidebar";
+import styles from "../styles/qrCodes.module.css";
+import logo from "../utilites/images/001-qr-code -black.svg";
 
 const QrCodes = () => {
-  const [text, setText] = useState('kamon');
-  const [selectedColor, setSelectedColor] = useState('#000');
+  const [text, setText] = useState("kamon");
+  const [selectedColor, setSelectedColor] = useState("#000");
   const handleChange = (e) => {
     setText(e.target.value);
   };
-  const downloadQR = () => {
-    const canvas = document.getElementById('myqr');
-    const pngUrl = canvas
-      .toDataURL('image/png')
-      .replace('image/png', 'image/octet-stream');
-    let downloadLink = document.createElement('a');
-    downloadLink.href = pngUrl;
-    downloadLink.download = 'myqr.png';
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
+
+  const qrRef = React.useRef();
+
+  // const downloadQR = () => {
+  //   let canvas = qrRef.current.querySelector("canvas");
+  // let image = canvas.toDataURL("image/png");
+  // let anchor = document.createElement("a");
+  // anchor.href = image;
+  // console.log(canvas);
+  // console.dir(canvas);
+  // anchor.download = `qr-code.png`;
+  // document.body.appendChild(anchor);
+  // anchor.click();
+  // document.body.removeChild(anchor);
+
+  // anchor.download = "test.png";
+  // document.body.appendChild(anchor);
+  // anchor.click();
+  // document.body.removeChild(anchor);
+
+  // const canvas = document.getElementById("myqr");
+  // const pngUrl = canvas
+  //   .toDataURL("image/png")
+  // let downloadLink = document.createElement("a");
+  // downloadLink.href = pngUrl;
+  // downloadLink.download = "myqr.png";
+  // document.body.appendChild(downloadLink);
+  // downloadLink.click();
+  // document.body.removeChild(downloadLink);
+  // };
+
+  // const qrCode = (
+  // <QRCode
+  //   id="qrCodeElToRender"
+  //   size={500}
+  //   value={text}
+  //   bgColor="white"
+  //   fgColor="#141926"
+  //   level="H"
+  //   // imageSettings={{
+  //   //   src: "https://media-exp1.licdn.com/dms/image/C4E03AQFd2hG-I1djUA/profile-displayphoto-shrink_200_200/0/1627568512162?e=1636588800&v=beta&t=6N8Kxmdm7DaWfrP5Y9nh4EKX3r4nT_gM9GYa_liwtRM",
+  //   //   excavate: true,
+  //   //   width: 500 * 0.1,
+  //   //   height: 500 * 0.1,
+  //   // }}
+  // />
+  // );
+
+  const downloadQRCode = () => {
+    const qrCodeURL = document
+      .getElementById("qrCodeElToRender")
+      .get(0)
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+
+    console.log(qrCodeURL);
+    let aEl = document.createElement("a");
+    aEl.href = qrCodeURL;
+    aEl.download = "QR_Code.png";
+    document.body.appendChild(aEl);
+    aEl.click();
+    document.body.removeChild(aEl);
   };
+
   return (
     <div className="container vh-100">
       <div className="row">
@@ -53,15 +103,41 @@ const QrCodes = () => {
               <div className="text-center mt-4">
                 <h6
                   className="mt-2 mb-5 fs-23 lh-13 fw-bold"
-                  style={{ color: '#004CD4' }}
+                  style={{ color: "#004CD4" }}
                 >
                   Preview
                 </h6>
-                <QRcode
-                  id="myqr"
+                {/* <About /> */}
+                {/* <div className="rounded-circle" ref={qrRef}>
+                  {qrCode} */}
+                {/* <QRcode
+                    id="myqr"
+                    value={text}
+                    size={260}
+                    includeMargin={true}
+                    fgColor={selectedColor}
+                    imageSettings={{
+                      src: "https://media-exp1.licdn.com/dms/image/C4E03AQFd2hG-I1djUA/profile-displayphoto-shrink_200_200/0/1627568512162?e=1636588800&v=beta&t=6N8Kxmdm7DaWfrP5Y9nh4EKX3r4nT_gM9GYa_liwtRM",
+                      height: 500 * 0.1,
+                      width: 500 * 0.1,
+                      excavate: true,
+                    }}
+                  /> */}
+                {/* </div> */}
+
+                <QRCode
+                  id="qrCodeElToRender"
+                  size={200}
                   value={text}
-                  size={320}
-                  includeMargin={true}
+                  bgColor="white"
+                  fgColor="#141926"
+                  level={"H"}
+                  imageSettings={{
+                    src: "https://media-exp1.licdn.com/dms/image/C4E03AQFd2hG-I1djUA/profile-displayphoto-shrink_200_200/0/1627568512162?e=1636588800&v=beta&t=6N8Kxmdm7DaWfrP5Y9nh4EKX3r4nT_gM9GYa_liwtRM",
+                    excavate: true,
+                    width: 500 * 0.1,
+                    height: 500 * 0.1,
+                  }}
                 />
               </div>
               <h6 className="mt-4 fs-23 lh-27">
@@ -75,7 +151,7 @@ const QrCodes = () => {
                 name="https://www.linkedin.com/in/kawsar-dev/"
               />
             </div>
-            <div className="col-md-5 p-2 my-5" style={{ width: '350px' }}>
+            <div className="col-md-5 p-2 my-5" style={{ width: "350px" }}>
               <h6 className={`${styles.title} fs-23 lh-13 py-3 px-3`}>
                 Select a Template
               </h6>
@@ -99,14 +175,14 @@ const QrCodes = () => {
               <button
                 className="w-100 border-0 bg-white my-2 px-2 py-3 fw-bold"
                 type=""
-                style={{ color: '#004CD4' }}
+                style={{ color: "#004CD4" }}
               >
-                <BsUpload style={{ fontSize: '25px' }} className="me-3 " />
+                <BsUpload style={{ fontSize: "25px" }} className="me-3 " />
                 Upload File
               </button>
               <p
                 className="my-2 fw-bold fs-18 lh-12 "
-                style={{ color: '#004CD4' }}
+                style={{ color: "#004CD4" }}
               >
                 QR Colors
               </p>
@@ -115,10 +191,10 @@ const QrCodes = () => {
                   <input
                     className="bg-white"
                     style={{
-                      border: 'none',
-                      width: '140px',
-                      height: '40px',
-                      borderRadius: '10px',
+                      border: "none",
+                      width: "140px",
+                      height: "40px",
+                      borderRadius: "10px",
                     }}
                     onChange={(e) => setSelectedColor(e.target.value)}
                     type="color"
@@ -132,9 +208,9 @@ const QrCodes = () => {
                     className="text-white text-center mt-2 pt-2"
                     style={{
                       backgroundColor: `${selectedColor}`,
-                      width: '140px',
-                      height: '40px',
-                      borderRadius: '5px',
+                      width: "140px",
+                      height: "40px",
+                      borderRadius: "5px",
                     }}
                   >
                     {selectedColor}
@@ -145,8 +221,8 @@ const QrCodes = () => {
                 <h6
                   className={`mt-2 text-center px-2 py-3 fs-17 lh-28`}
                   style={{
-                    color: '#004CD4',
-                    backgroundColor: '#E8F0FF',
+                    color: "#004CD4",
+                    backgroundColor: "#E8F0FF",
                   }}
                 >
                   SAVE FOR ART BOARD
@@ -154,17 +230,17 @@ const QrCodes = () => {
                 <h6
                   className={`mt-2 text-center px-2 py-3 cursor-poiter fs-14 lh-23`}
                   style={{
-                    color: '#FFFFFF',
-                    backgroundColor: '#004CD4',
+                    color: "#FFFFFF",
+                    backgroundColor: "#004CD4",
                   }}
-                  onClick={downloadQR}
+                  onClick={downloadQRCode}
                 >
-                  CREATE AND DOWNLOAD QR CODE{' '}
+                  CREATE AND DOWNLOAD QR CODE{" "}
                   <IoIosArrowDown
                     className="ms-3"
                     style={{
-                      fontSize: '25px',
-                      fontWeight: 'bold',
+                      fontSize: "25px",
+                      fontWeight: "bold",
                     }}
                   />
                 </h6>

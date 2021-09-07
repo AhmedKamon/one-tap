@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import Navbar from "../components/navbar/navbar";
-import About from "../components/qrCode/qrcode";
 import Sidebar from "../components/sidebar/sidebar";
+import About from "../components/test/test";
 import demo from "../utilites/images/damo.svg";
 const Media = () => {
   return (
