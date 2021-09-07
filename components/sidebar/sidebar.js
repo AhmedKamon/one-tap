@@ -6,8 +6,12 @@ import { data } from '../../utilites/data';
 import icon from '../../utilites/images/Mask Group.svg';
 import styles from './sidebar.module.css';
 import NextLink from 'next/link';
+import { useRouter } from 'next/dist/client/router';
 
 const Sidebar = () => {
+  const router = useRouter();
+  console.log(router.pathname);
+  const currentPath = router.pathname;
   return (
     <div className={`${styles.maindiv}`}>
       <div className={`${styles.main} `}>
@@ -17,20 +21,23 @@ const Sidebar = () => {
           </div>
         </NextLink>
 
-        <ul className={`${styles.sideBarLogo} navbar-nav container`}>
+        <ul
+          className={`${styles.sideBarLogo} navbar-nav container cursor-poiter`}
+        >
           {data.map((logo) => (
-            <li key={logo.id} className={`nav-item ms-3 `}>
-              <div className=" d-flex align-items-center mt-4 ms-3">
-                <Link href={logo.link}>
-                  <a className="me-3 fs-16 mt-1">
-                    <Image src={logo.logo} height="20" width="20" alt="logo" />
-                  </a>
-                </Link>
-                <Link href={logo.link}>
-                  <a className={`${styles.singleLogo} fs-16 `}>{logo.name}</a>
-                </Link>
+            <Link href={logo.link} key={logo.id} className={`nav-item `}>
+              <div
+                className={`${
+                  currentPath === logo.link ? `${styles.fullBtnActive} ` : ``
+                } ${styles.fullBtn} d-flex align-items-center mt-4 ms-4`}
+              >
+                <a className="me-3 fs-16 mt-1">
+                  <Image src={logo.logo} height="20" width="20" alt="logo" />
+                </a>
+
+                <a className={`${styles.singleLogo} fs-16 `}>{logo.name}</a>
               </div>
-            </li>
+            </Link>
           ))}
         </ul>
         <div className={`${styles.upgrade}`}>
