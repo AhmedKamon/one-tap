@@ -1,15 +1,14 @@
-.btn{
-    border: none;
-    background-color: white;
-    color: #FFB229;
-    height: 45px;
-    width: 145px;
-    border-radius: 6px;
+.btn {
+  border: none;
+  background-color: white;
+  color: #ffb229;
+  height: 45px;
+  width: 145px;
+  border-radius: 6px;
 }
-.Invitebtn{
-    background-color: #004CD4;
-    padding: 10px 30px;
-    cursor: pointer;
-    color: white;
-    border-radius: 5px;
+.Invitebtn {
+  background-color: #004cd4;
+  border: none;
+  border-radius: 5px;
+  color: white;
 }

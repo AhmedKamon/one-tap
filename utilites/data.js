@@ -63,10 +63,4 @@ export const data = [
     name: 'Help',
     link: '/help',
   },
-  {
-    id: 10,
-    logo: image9,
-    name: 'Card',
-    link: '/cards',
-  },
 ];

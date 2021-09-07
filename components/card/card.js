@@ -24,22 +24,16 @@ const cardData = [
     price: 15,
   },
 ];
-console.log(cardData[3]);
 
 const Card = () => {
   return (
-    <div className="mb-5">
-      <div className="py-5 mx-5 px-5">
-        <div className="px-3">
-          <h2 className="mt-5 mx-5 px-5 fs-25 text-primary fw-bold">
-            SELECT A PLAN
-          </h2>
-        </div>
-      </div>
-
+    <div className="mt-5 ">
+      <h2 className="mt-5 fs-25 textColor text-center fw-bold">
+        SELECT A PLAN
+      </h2>
       {/* card start */}
 
-      <div className="d-flex">
+      <div className="d-flex mt-5">
         {cardData.map((data) => (
           <div
             key={data.id}
@@ -83,7 +77,7 @@ const Card = () => {
             </div>
             <div className="d-flex justify-content-center">
               <button
-                className={`px-4 ${
+                className={`px-4 mb-4 ${
                   data.id === 4 ? `btn btn-light` : 'btn btn-primary'
                 }`}
               >
