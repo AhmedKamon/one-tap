@@ -129,7 +129,7 @@ const QrCodes = () => {
               </label>
               <input type="file" className="d-none" id="file" />
               <p className="mt-4 mb-1 fontMedium fs-16 lh-12 textColor">
-                QR Colors
+                Pick QR Colors
               </p>
               <div className="d-flex align-items-center justify-content-between">
                 <div className="col-6">
@@ -137,6 +137,7 @@ const QrCodes = () => {
                   <input
                     className="bg-white"
                     id="color"
+                    placeholder="Pick a color"
                     style={{
                       border: "none !important",
                       width: "140px",
@@ -147,7 +148,7 @@ const QrCodes = () => {
                     onChange={(e) => setSelectedColor(e.target.value)}
                     type="color"
                     name=""
-                    value="#ffffff"
+                    value="#D09090"
                   />
                 </div>
 
