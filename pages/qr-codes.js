@@ -9,8 +9,8 @@ import styles from "../styles/qrCodes.module.css";
 
 const qrCode = new QRCodeStyling({
   width: 320,
-  height: 340,
-  backgroundOptions: { color: "transparent" },
+  height: 360,
+  margin: 10,
   image:
     "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
   dotsOptions: {
@@ -24,7 +24,7 @@ const qrCode = new QRCodeStyling({
 });
 
 const QrCodes = () => {
-  const [text, setText] = useState("");
+  const [organizationName, setOrganizationName] = useState("");
   const [selectedColor, setSelectedColor] = useState("#000");
   const [url, setUrl] = useState("https://qr-code-styling.com");
   const [fileExt, setFileExt] = useState("png");
@@ -37,8 +37,12 @@ const QrCodes = () => {
   useEffect(() => {
     qrCode.update({
       data: url,
+      dotsOptions: {
+        color: selectedColor,
+        type: "rounded",
+      },
     });
-  }, [url]);
+  }, [url, selectedColor]);
 
   const onUrlChange = (event) => {
     event.preventDefault();
@@ -51,21 +55,22 @@ const QrCodes = () => {
 
   const onDownloadClick = () => {
     qrCode.download({
+      name: organizationName,
       extension: fileExt,
     });
   };
 
   const handleChange = (e) => {
-    setText(e.target.value);
+    setOrganizationName(e.target.value);
   };
 
   return (
     <div className="container vh-100">
       <div className="row">
-        <div className="col-md-3">
+        <div className="col-12 col-md-3">
           <Sidebar />
         </div>
-        <div className="col-md-9 vh-100 scroll">
+        <div className="col-12 col-md-9 vh-100 scroll">
           <Navbar />
           {/* ======= */}
           <div className="row mt-5 d-flex justify-content-between pb-5">
@@ -75,7 +80,7 @@ const QrCodes = () => {
               <input
                 className={`${styles.qrInput} form-control mt-2`}
                 type="text"
-                value={text}
+                value={organizationName}
                 label="QR content"
                 size="large"
                 color="primary"
@@ -128,18 +133,21 @@ const QrCodes = () => {
               </p>
               <div className="d-flex align-items-center justify-content-between">
                 <div className="col-6">
+                  {/* <label htmlFor="color">Test</label> */}
                   <input
                     className="bg-white"
+                    id="color"
                     style={{
-                      border: "none",
+                      border: "none !important",
                       width: "140px",
                       height: "40px",
                       borderRadius: "10px",
+                      color: "red !important",
                     }}
                     onChange={(e) => setSelectedColor(e.target.value)}
                     type="color"
                     name=""
-                    value=""
+                    value="#ffffff"
                   />
                 </div>
 
@@ -159,7 +167,7 @@ const QrCodes = () => {
               </div>
               <div>
                 <p
-                  className={`mt-2 text-center px-2 py-2 fs-14 lh-28 cursor-poiter rounded-3`}
+                  className={`mt-2 text-center px-2 py-2 fs-14 lh-28 cursor-poiter rounded-3 textColor`}
                   style={{ backgroundColor: "#E8F0FF" }}
                 >
                   SAVE FOR ART BOARD
