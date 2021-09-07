@@ -1,21 +1,28 @@
-.cardStyle{
-background-color: #FFFFFF;
-border-radius:10px;
-/* width:250px;
-height:560px; */
-margin-left: 2px;
+.cardStyle {
+  background-color: #ffffff;
+  border-radius: 10px;
 }
-.fourthCard{
-    background-image: linear-gradient(#004CD4, #679DFF);
-    color:white;
+
+.fourthCard {
+  background-image: linear-gradient(156deg,#004cd4, #679dff);
+  color: white;
 }
-.title{
-    color:white;
+
+.title {
+  color: white;
 }
-/* .cardStyle:hover {
-    width:272px;
-    height:610px;
-    box-shadow: 5px 5px 20px whitesmoke;
-    color:red;
-    scale:1;
-} */
+
+.cardHover {
+  margin: 20px 0px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.cardHover:hover {
+  transform: scale(1.1);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.selectPlan {
+    margin: 100px 0px;
+}
