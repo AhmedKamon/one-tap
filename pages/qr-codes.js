@@ -1,4 +1,3 @@
-import Image from "next/image";
 import "node-self";
 import QRCodeStyling from "qr-code-styling";
 import React, { useEffect, useRef, useState } from "react";
@@ -7,11 +6,11 @@ import { IoIosArrowDown } from "react-icons/io";
 import Navbar from "../components/navbar/navbar";
 import Sidebar from "../components/sidebar/sidebar";
 import styles from "../styles/qrCodes.module.css";
-import logo from "../utilites/images/001-qr-code -black.svg";
 
 const qrCode = new QRCodeStyling({
   width: 320,
-  height: 320,
+  height: 340,
+  backgroundOptions: { color: "transparent" },
   image:
     "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
   dotsOptions: {
@@ -69,7 +68,7 @@ const QrCodes = () => {
         <div className="col-md-9 vh-100 scroll">
           <Navbar />
           {/* ======= */}
-          <div className=" row mt-5 pb-5">
+          <div className="row mt-5 d-flex justify-content-between pb-5">
             <div className="col-md-5">
               <h3 className="fs-24 lh-27 fw-bold">Create a new QR Code</h3>
               <h6 className="mt-4 fs-17 m-0 lh-27">Name my code (optional)</h6>
@@ -85,7 +84,7 @@ const QrCodes = () => {
               />
               <div className=" mt-4">
                 <h6
-                  className="mt-2 mb-4 fs-20 lh-13 fw-bold text-center"
+                  className="mt-5 mb-4 fs-20 lh-13 fw-bold text-center"
                   style={{ color: "#004CD4" }}
                 >
                   Preview
@@ -99,47 +98,34 @@ const QrCodes = () => {
                 {/* </div> */}
                 <div className="ms-2" ref={ref} />
               </div>
-              <h6 className="mt-4 fs-20 lh-27">
-                I want my QR code to scan to:
-              </h6>
-              <p className="mt-2 m-0 lh-26">Enter or Paste a link</p>
-              <input
-                className={`${styles.qrInput} form-control`}
-                value={url}
-                onChange={onUrlChange}
-                style={styles.inputBox}
-                name="qr-code"
-              />
             </div>
-            <div className="col-md-5 p-2 my-5 ms-5" style={{ width: "350px" }}>
-              <h6 className={`${styles.title} fs-18 lh-13 py-3 px-3`}>
-                Select a Template
-              </h6>
-              <div className="d-flex justify-content-between my-4">
-                <div className="p-2 text-center">
-                  <Image src={logo} height="100" width="100" alt="logo" />
-                  <p className={`${styles.temp} mt-3 px-2 py-2 fs-13 lh-10`}>
-                    Default template
-                  </p>
-                </div>
-                <div className="p-2 text-center">
-                  <Image src={logo} height="100" width="100" alt="logo" />
-                  <p className={`${styles.temp} mt-3 px-2 py-2 fs-13 lh-10`}>
-                    Circular
-                  </p>
-                </div>
+            <div className="col-md-5 p-3 my-5" style={{ width: "350px" }}>
+              <div className="my-4">
+                <p className="mt-4 fs-16 lh-27 py-2 bgBlue text-white px-3 rounded-3 fontMedium">
+                  I want my QR code to scan to
+                </p>
+                <p className="mt-4 mb-2 m-0 lh-26">Enter or Paste a link</p>
+                <input
+                  className={`${styles.qrInput} form-control`}
+                  value={url}
+                  onChange={onUrlChange}
+                  style={styles.inputBox}
+                  name="qr-code"
+                />
               </div>
-              <h6 className={`${styles.title} fs-18 lh-13 py-3 px-3`}>
+              <h6 className={`${styles.title} fs-16 lh-13 py-3 px-3`}>
                 Image File
               </h6>
               <label
                 htmlFor="file"
-                className="text-center d-block py-2 bg-white my-3 textColor fw-bold cursor-poiter"
+                className="text-center d-block py-2 bg-white my-3 textColor cursor-poiter fontMedium"
               >
                 <BsUpload className="me-2" /> Upload File{" "}
               </label>
               <input type="file" className="d-none" id="file" />
-              <p className="my-2 fw-bold fs-18 lh-12 textColor">QR Colors</p>
+              <p className="mt-4 mb-1 fontMedium fs-16 lh-12 textColor">
+                QR Colors
+              </p>
               <div className="d-flex align-items-center justify-content-between">
                 <div className="col-6">
                   <input
@@ -172,18 +158,17 @@ const QrCodes = () => {
                 </div>
               </div>
               <div>
-                <h6
-                  className={`mt-2 text-center px-2 py-2 fs-17 lh-28 cursor-poiter rounded-3`}
+                <p
+                  className={`mt-2 text-center px-2 py-2 fs-14 lh-28 cursor-poiter rounded-3`}
                   style={{ backgroundColor: "#E8F0FF" }}
                 >
                   SAVE FOR ART BOARD
-                </h6>
+                </p>
                 <h6
-                  className={`mt-2 text-center px-2 py-3 cursor-poiter fs-14 lh-23 bgBlue text-white rounded-3`}
+                  className={`mt-2 text-center px-2 py-3 cursor-poiter fontRegular fs-14 lh-23 bgBlue text-white rounded-3`}
                   onClick={onDownloadClick}
                 >
-                  CREATE AND DOWNLOAD QR CODE{" "}
-                  <IoIosArrowDown className="ms-3" size="20" />
+                  DOWNLOAD QR CODE <IoIosArrowDown className="ms-3" size="16" />
                 </h6>
               </div>
             </div>
