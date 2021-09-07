@@ -5,6 +5,7 @@ import Navbar from "../components/navbar/navbar";
 import Sidebar from "../components/sidebar/sidebar";
 import styles from "../styles/media.module.css";
 import demo from "../utilites/images/damo.svg";
+// const QRCodeStyling = dynamic(() => import("qr-code-styling"));
 
 const qrCode = new QRCodeStyling({
   width: 300,

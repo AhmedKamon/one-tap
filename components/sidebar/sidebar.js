@@ -1,6 +1,6 @@
-import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
 import { default as Link, default as NextLink } from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { BsStarFill } from "react-icons/bs";
 import { data } from "../../utilites/data";
@@ -33,7 +33,7 @@ const Sidebar = () => {
               <div
                 className={`${
                   currentPath === logo.link ? `${styles.fullBtnActive} ` : ``
-                } ${styles.fullBtn} d-flex align-items-center mt-4 ms-4`}
+                } ${styles.fullBtn} d-flex align-items-center my-2 ms-4`}
               >
                 <a className="me-3 fs-16 mt-1">
                   <Image src={logo.logo} height="20" width="20" alt="logo" />
