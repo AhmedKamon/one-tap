@@ -1,3 +1,4 @@
+import axios from 'axios';
 import 'node-self';
 import QRCodeStyling from 'qr-code-styling';
 import React, { useEffect, useRef, useState } from 'react';
@@ -31,6 +32,7 @@ const QrCodes = () => {
   const ref = useRef(null);
 
   useEffect(() => {
+    console.log(ref);
     qrCode.append(ref.current);
   }, []);
 
@@ -54,6 +56,8 @@ const QrCodes = () => {
   };
 
   const onDownloadClick = () => {
+    const data = qrCode;
+    console.log(data);
     qrCode.download({
       name: organizationName,
       extension: fileExt,
@@ -62,12 +66,6 @@ const QrCodes = () => {
 
   const handleChange = (e) => {
     setOrganizationName(e.target.value);
-  };
-
-  const uploadImage = (files) => {
-    console.log(files[0]);
-    const formData = new FormData();
-    formData.append('file', files[0]);
   };
 
   return (
