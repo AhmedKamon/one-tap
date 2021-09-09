@@ -1,33 +1,33 @@
-import "node-self";
-import QRCodeStyling from "qr-code-styling";
-import React, { useEffect, useRef, useState } from "react";
-import { BsUpload } from "react-icons/bs";
-import { IoIosArrowDown } from "react-icons/io";
-import Navbar from "../components/navbar/navbar";
-import Sidebar from "../components/sidebar/sidebar";
-import styles from "../styles/qrCodes.module.css";
+import 'node-self';
+import QRCodeStyling from 'qr-code-styling';
+import React, { useEffect, useRef, useState } from 'react';
+import { BsUpload } from 'react-icons/bs';
+import { IoIosArrowDown } from 'react-icons/io';
+import Navbar from '../components/navbar/navbar';
+import Sidebar from '../components/sidebar/sidebar';
+import styles from '../styles/qrCodes.module.css';
 
 const qrCode = new QRCodeStyling({
   width: 320,
   height: 360,
   margin: 10,
   image:
-    "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+    'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg',
   dotsOptions: {
-    color: "#171717",
-    type: "rounded",
+    color: '#171717',
+    type: 'rounded',
   },
   imageOptions: {
-    crossOrigin: "anonymous",
+    crossOrigin: 'anonymous',
     margin: 20,
   },
 });
 
 const QrCodes = () => {
-  const [organizationName, setOrganizationName] = useState("");
-  const [selectedColor, setSelectedColor] = useState("#000");
-  const [url, setUrl] = useState("https://qr-code-styling.com");
-  const [fileExt, setFileExt] = useState("png");
+  const [organizationName, setOrganizationName] = useState('');
+  const [selectedColor, setSelectedColor] = useState('#000');
+  const [url, setUrl] = useState('https://qr-code-styling.com');
+  const [fileExt, setFileExt] = useState('png');
   const ref = useRef(null);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const QrCodes = () => {
       data: url,
       dotsOptions: {
         color: selectedColor,
-        type: "rounded",
+        type: 'rounded',
       },
     });
   }, [url, selectedColor]);
@@ -62,6 +62,12 @@ const QrCodes = () => {
 
   const handleChange = (e) => {
     setOrganizationName(e.target.value);
+  };
+
+  const uploadImage = (files) => {
+    console.log(files[0]);
+    const formData = new FormData();
+    formData.append('file', files[0]);
   };
 
   return (
@@ -90,7 +96,7 @@ const QrCodes = () => {
               <div className=" mt-4">
                 <h6
                   className="mt-5 mb-4 fs-20 lh-13 fw-bold text-center"
-                  style={{ color: "#004CD4" }}
+                  style={{ color: '#004CD4' }}
                 >
                   Preview
                 </h6>
@@ -104,7 +110,7 @@ const QrCodes = () => {
                 <div className="ms-2" ref={ref} />
               </div>
             </div>
-            <div className="col-md-5 p-3 my-5" style={{ width: "350px" }}>
+            <div className="col-md-5 p-3 my-5" style={{ width: '350px' }}>
               <div className="my-4">
                 <p className="mt-4 fs-16 lh-27 py-2 bgBlue text-white px-3 rounded-3 fontMedium">
                   I want my QR code to scan to
@@ -125,9 +131,14 @@ const QrCodes = () => {
                 htmlFor="file"
                 className="text-center d-block py-2 bg-white my-3 textColor cursor-poiter fontMedium"
               >
-                <BsUpload className="me-2" /> Upload File{" "}
+                <BsUpload className="me-2" /> Upload File{' '}
               </label>
-              <input type="file" className="d-none" id="file" />
+              <input
+                type="file"
+                className="d-none"
+                id="file"
+                onChange={(e) => uploadImage(e.target.files)}
+              />
               <p className="mt-4 mb-1 fontMedium fs-16 lh-12 textColor">
                 QR Colors
               </p>
@@ -138,11 +149,11 @@ const QrCodes = () => {
                     className="bg-white"
                     id="color"
                     style={{
-                      border: "none !important",
-                      width: "140px",
-                      height: "40px",
-                      borderRadius: "10px",
-                      color: "red !important",
+                      border: 'none !important',
+                      width: '140px',
+                      height: '40px',
+                      borderRadius: '10px',
+                      color: 'red !important',
                     }}
                     onChange={(e) => setSelectedColor(e.target.value)}
                     type="color"
@@ -156,9 +167,9 @@ const QrCodes = () => {
                     className="text-white text-center mt-2 pt-2"
                     style={{
                       backgroundColor: `${selectedColor}`,
-                      width: "140px",
-                      height: "40px",
-                      borderRadius: "5px",
+                      width: '140px',
+                      height: '40px',
+                      borderRadius: '5px',
                     }}
                   >
                     {selectedColor}
@@ -168,7 +179,7 @@ const QrCodes = () => {
               <div>
                 <p
                   className={`mt-2 text-center px-2 py-2 fs-14 lh-28 cursor-poiter rounded-3 textColor`}
-                  style={{ backgroundColor: "#E8F0FF" }}
+                  style={{ backgroundColor: '#E8F0FF' }}
                 >
                   SAVE FOR ART BOARD
                 </p>

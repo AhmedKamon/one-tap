@@ -13,7 +13,11 @@ const qrCodeDataSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  imgUrl: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports =
-  mongoose.models.qrCodeData || mongoose.model('qrCodeData', qrCodeDataSchema);
+  mongoose.models.QrCodeData || mongoose.model('QrCodeData', qrCodeDataSchema);
