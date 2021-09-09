@@ -1,4 +1,3 @@
-import axios from 'axios';
 import 'node-self';
 import QRCodeStyling from 'qr-code-styling';
 import React, { useEffect, useRef, useState } from 'react';
@@ -26,25 +25,29 @@ const qrCode = new QRCodeStyling({
 
 const QrCodes = () => {
   const [organizationName, setOrganizationName] = useState('');
+  const [showSpinner, setShowSpinner] = useState(false);
   const [selectedColor, setSelectedColor] = useState('#000');
   const [url, setUrl] = useState('https://qr-code-styling.com');
   const [fileExt, setFileExt] = useState('png');
   const ref = useRef(null);
+  const [imgURl, setImgURL] = useState('');
+  console.log(fileExt);
 
   useEffect(() => {
-    console.log(ref);
+    console.log(qrCode);
     qrCode.append(ref.current);
   }, []);
 
   useEffect(() => {
     qrCode.update({
       data: url,
+      image: imgURl,
       dotsOptions: {
         color: selectedColor,
         type: 'rounded',
       },
     });
-  }, [url, selectedColor]);
+  }, [url, selectedColor, imgURl]);
 
   const onUrlChange = (event) => {
     event.preventDefault();
@@ -66,6 +69,25 @@ const QrCodes = () => {
 
   const handleChange = (e) => {
     setOrganizationName(e.target.value);
+  };
+
+  const uploadImage = (files) => {
+    setShowSpinner(true);
+    const url = 'https://api.cloudinary.com/v1_1/one-tap/image/upload';
+
+    const formData = new FormData();
+    formData.append('file', files);
+    formData.append('upload_preset', 'tbjkdozx');
+
+    fetch(url, {
+      method: 'POST',
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setImgURL(data.url);
+        setShowSpinner(false);
+      });
   };
 
   return (
@@ -105,6 +127,17 @@ const QrCodes = () => {
                     <option value="webp">WEBP</option>
                   </select> */}
                 {/* </div> */}
+                {showSpinner && (
+                  <div className="text-center mb-4">
+                    <div
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                    >
+                      <span className="visually-hidden">Loading...</span>
+                    </div>{' '}
+                    Generating QR code...
+                  </div>
+                )}
                 <div className="ms-2" ref={ref} />
               </div>
             </div>
@@ -135,10 +168,10 @@ const QrCodes = () => {
                 type="file"
                 className="d-none"
                 id="file"
-                onChange={(e) => uploadImage(e.target.files)}
+                onChange={(e) => uploadImage(e.target.files[0])}
               />
               <p className="mt-4 mb-1 fontMedium fs-16 lh-12 textColor">
-                QR Colors
+                Pick QR Colors
               </p>
               <div className="d-flex align-items-center justify-content-between">
                 <div className="col-6">
@@ -146,6 +179,7 @@ const QrCodes = () => {
                   <input
                     className="bg-white"
                     id="color"
+                    placeholder="Pick a color"
                     style={{
                       border: 'none !important',
                       width: '140px',
@@ -156,7 +190,7 @@ const QrCodes = () => {
                     onChange={(e) => setSelectedColor(e.target.value)}
                     type="color"
                     name=""
-                    value="#ffffff"
+                    value="#D09090"
                   />
                 </div>
 
