@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+import "node-self";
+import QRCodeStyling from "qr-code-styling";
+import React, { useContext, useEffect } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { GoPlus } from "react-icons/go";
 import { HiOutlineDownload } from "react-icons/hi";
@@ -8,9 +10,50 @@ import Navbar from "../components/navbar/navbar";
 import Sidebar from "../components/sidebar/sidebar";
 import styles from "../styles/createTemplate.module.css";
 import QRCode from "../utilites/images/001-qr-code.svg";
+import { QrContext } from "./_app";
+
+//
+
+const qrCode = new QRCodeStyling({
+  width: 320,
+  height: 360,
+  margin: 10,
+  // image: image,
+  dotsOptions: {
+    color: "#171717",
+    type: "rounded",
+  },
+  imageOptions: {
+    crossOrigin: "anonymous",
+    margin: 20,
+  },
+});
 
 const CreateTemplate = () => {
+  const [qrCodeInfo, setQrCodeInfo] = useContext(QrContext);
   const router = useRouter();
+
+  console.log(qrCodeInfo._options);
+  // const image = qrCodeInfo._options.image || "e";
+
+  useEffect(() => {
+    qrCode.update({
+      data: "https://qr-code-styling.com",
+      // image: imgURl,
+      imageOptions: {
+        margin: qrCodeInfo._options?.margin,
+      },
+    });
+  }, []);
+
+  const onDownloadClick = () => {
+    setQrCodeInfo(qrCode);
+    qrCode.download({
+      // name: organizationName,
+      extension: "jpeg",
+    });
+  };
+
   return (
     <div className="container vh-100">
       <div className="row">
@@ -48,6 +91,7 @@ const CreateTemplate = () => {
               <div className="row px-3 py-1">
                 <div className="col-md-2 d-flex justify-content-center align-items-center ">
                   <Image src={QRCode} height="90" width="90" alt="qrCode" />
+                  {/* <div className="ms-2" ref={ref} /> */}
                 </div>
                 <div className="col-md-6 d-flex justify-content-between align-items-center">
                   <div className="me-5">
@@ -86,6 +130,7 @@ const CreateTemplate = () => {
                   <button
                     type=""
                     className={`${styles.btn} d-flex justify-content-center align-items-center px-4 py-2  rounded-3 mt-2 w-100`}
+                    onClick={onDownloadClick}
                   >
                     <HiOutlineDownload size={18} className="me-1" />
                     <span className="fs-12 lh-16">Download</span>

@@ -1,11 +1,12 @@
 import "node-self";
 import QRCodeStyling from "qr-code-styling";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { BsUpload } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import Navbar from "../components/navbar/navbar";
 import Sidebar from "../components/sidebar/sidebar";
 import styles from "../styles/qrCodes.module.css";
+import { QrContext } from "./_app";
 
 const qrCode = new QRCodeStyling({
   width: 320,
@@ -24,6 +25,7 @@ const qrCode = new QRCodeStyling({
 });
 
 const QrCodes = () => {
+  const [qrCodeInfo, setQrCodeInfo] = useContext(QrContext);
   const [organizationName, setOrganizationName] = useState("");
   const [showSpinner, setShowSpinner] = useState(false);
   const [selectedColor, setSelectedColor] = useState("#000");
@@ -58,6 +60,7 @@ const QrCodes = () => {
   };
 
   const onDownloadClick = () => {
+    // setQrCodeInfo(qrCode);
     qrCode.download({
       name: organizationName,
       extension: fileExt,
@@ -85,6 +88,10 @@ const QrCodes = () => {
         setImgURL(data.url);
         setShowSpinner(false);
       });
+  };
+
+  const handleSave = () => {
+    setQrCodeInfo(qrCode);
   };
 
   return (
@@ -209,6 +216,7 @@ const QrCodes = () => {
                 <p
                   className={`mt-2 text-center px-2 py-2 fs-14 lh-28 cursor-poiter rounded-3 textColor`}
                   style={{ backgroundColor: "#E8F0FF" }}
+                  onClick={handleSave}
                 >
                   SAVE FOR ART BOARD
                 </p>

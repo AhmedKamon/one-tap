@@ -13,6 +13,7 @@
     "html-react-parser": "^1.2.9",
     "mongoose": "^6.0.5",
     "next": "11.1.0",
+    "next-connect": "^0.10.2",
     "node-self": "^1.0.0-c",
     "qr-code-styling": "^1.6.0-rc.1",
     "qrcode.react": "^1.0.1",
