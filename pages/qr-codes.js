@@ -12,8 +12,6 @@ const qrCode = new QRCodeStyling({
   width: 320,
   height: 360,
   margin: 10,
-  image:
-    "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
   dotsOptions: {
     color: "#171717",
     type: "rounded",
@@ -92,6 +90,17 @@ const QrCodes = () => {
 
   const handleSave = () => {
     setQrCodeInfo(qrCode);
+    const imgUrl = imgURl;
+    const color = selectedColor;
+    const link = url;
+    const companyName = organizationName;
+    fetch("http://localhost:3000/api/qrcode", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ imgUrl, color, link, companyName }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   return (

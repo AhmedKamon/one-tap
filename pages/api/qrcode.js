@@ -1,10 +1,11 @@
 import nc from "next-connect";
-import { addQrCode } from "../../backend/controller/qrcode";
+import { addQrCode, getQrCode } from "../../backend/controller/qrcode";
 import dbConnect from "../../utilites/db";
 
 const handler = nc();
 dbConnect();
 
-handler.get(addQrCode);
+handler.post(addQrCode);
+handler.get(getQrCode);
 
 export default handler;
