@@ -1,10 +1,9 @@
-import React from 'react';
-import Navbar from '../components/navbar/navbar';
-import Sidebar from '../components/sidebar/sidebar';
-import { Scrollbar } from 'react-scrollbars-custom';
-import RightSideBar from '../components/rightSideBar/rightSideBar';
-import { creatProject } from '../utilites/createProject';
-import styles from '../styles/createPage.module.css';
+import React from "react";
+import Navbar from "../components/navbar/navbar";
+import RightSideBar from "../components/rightSideBar/rightSideBar";
+import Sidebar from "../components/sidebar/sidebar";
+import styles from "../styles/createPage.module.css";
+import { creatProject } from "../utilites/createProject";
 
 const CreatePage = () => {
   return (
@@ -25,7 +24,7 @@ const CreatePage = () => {
                     <div
                       key={data.id}
                       className={`${styles.card} col-md-3 bg-white m-3 d-flex justify-content-center align-items-center`}
-                      style={{ height: '100px' }}
+                      style={{ height: "100px" }}
                     >
                       <small className="fs-14 ">{data.name}</small>
                     </div>
