@@ -1,18 +1,17 @@
 import 'node-self';
 import QRCodeStyling from 'qr-code-styling';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { BsUpload } from 'react-icons/bs';
 import { IoIosArrowDown } from 'react-icons/io';
 import Navbar from '../components/navbar/navbar';
 import Sidebar from '../components/sidebar/sidebar';
 import styles from '../styles/qrCodes.module.css';
+import { QrContext } from './_app';
 
 const qrCode = new QRCodeStyling({
   width: 320,
   height: 360,
   margin: 10,
-  image:
-    'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg',
   dotsOptions: {
     color: '#171717',
     type: 'rounded',
@@ -24,6 +23,7 @@ const qrCode = new QRCodeStyling({
 });
 
 const QrCodes = () => {
+  const [qrCodeInfo, setQrCodeInfo] = useContext(QrContext);
   const [organizationName, setOrganizationName] = useState('');
   const [showSpinner, setShowSpinner] = useState(false);
   const [selectedColor, setSelectedColor] = useState('#000');
@@ -31,7 +31,6 @@ const QrCodes = () => {
   const [fileExt, setFileExt] = useState('png');
   const ref = useRef(null);
   const [imgURl, setImgURL] = useState('');
-  console.log(fileExt);
 
   useEffect(() => {
     console.log(qrCode);
@@ -59,8 +58,7 @@ const QrCodes = () => {
   };
 
   const onDownloadClick = () => {
-    const data = qrCode;
-    console.log(data);
+    // setQrCodeInfo(qrCode);
     qrCode.download({
       name: organizationName,
       extension: fileExt,
@@ -88,6 +86,21 @@ const QrCodes = () => {
         setImgURL(data.url);
         setShowSpinner(false);
       });
+  };
+
+  const handleSave = () => {
+    setQrCodeInfo(qrCode);
+    const imgUrl = imgURl;
+    const color = selectedColor;
+    const link = url;
+    const companyName = organizationName;
+    fetch('http://localhost:3000/api/qrcode', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ imgUrl, color, link, companyName }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   return (
@@ -212,6 +225,7 @@ const QrCodes = () => {
                 <p
                   className={`mt-2 text-center px-2 py-2 fs-14 lh-28 cursor-poiter rounded-3 textColor`}
                   style={{ backgroundColor: '#E8F0FF' }}
+                  onClick={handleSave}
                 >
                   SAVE FOR ART BOARD
                 </p>
