@@ -1,7 +1,7 @@
 import 'node-self';
 import QRCodeStyling from 'qr-code-styling';
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { BsUpload } from 'react-icons/bs';
+import { BsUpload, BsArrowDownShort } from 'react-icons/bs';
 import { IoIosArrowDown } from 'react-icons/io';
 import Navbar from '../components/navbar/navbar';
 import Sidebar from '../components/sidebar/sidebar';
@@ -12,9 +12,12 @@ const qrCode = new QRCodeStyling({
   width: 320,
   height: 360,
   margin: 10,
+  backgroundOptions: {
+    color: '#F3F5F7',
+  },
   dotsOptions: {
     color: '#171717',
-    type: 'rounded',
+    type: 'Dots',
   },
   imageOptions: {
     crossOrigin: 'anonymous',
@@ -23,6 +26,8 @@ const qrCode = new QRCodeStyling({
 });
 
 const QrCodes = () => {
+  const [dots, setDots] = useState('classy');
+  const [corneDots, setCornerDots] = useState('');
   const [qrCodeInfo, setQrCodeInfo] = useContext(QrContext);
   const [organizationName, setOrganizationName] = useState('');
   const [showSpinner, setShowSpinner] = useState(false);
@@ -43,10 +48,13 @@ const QrCodes = () => {
       image: imgURl,
       dotsOptions: {
         color: selectedColor,
-        type: 'rounded',
+        type: dots,
+      },
+      cornersSquareOptions: {
+        type: corneDots,
       },
     });
-  }, [url, selectedColor, imgURl]);
+  }, [url, selectedColor, imgURl, dots, corneDots]);
 
   const onUrlChange = (event) => {
     event.preventDefault();
@@ -155,6 +163,32 @@ const QrCodes = () => {
               </div>
             </div>
             <div className="col-md-5 p-3 my-5" style={{ width: '350px' }}>
+              {/* ======================= */}
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="fs-16 lh-18 fw-bold">Select Dots</p>
+                  <select
+                    className=" custom-select my-1 mr-sm-2 w-100 py-2 px-1 rounded border"
+                    onChange={(e) => setDots(e.target.value)}
+                  >
+                    <option value="square">Square </option>
+                    <option value="dots">Dots</option>
+                    <option value="classy">Classy</option>
+                  </select>
+                </div>
+                <div className="col-md-6">
+                  <p className="fs-16 lh-18 fw-bold">Select Corners </p>
+                  <select
+                    className=" custom-select my-1 mr-sm-2 w-100 py-2 px-1 rounded border"
+                    onChange={(e) => setCornerDots(e.target.value)}
+                  >
+                    <option value="square">Square</option>
+                    <option value="dot">Dot</option>
+                    <option value="extra-rounded">Extra Rounded</option>
+                  </select>
+                </div>
+              </div>
+              {/* ======================= */}
               <div className="my-4">
                 <p className="mt-4 fs-16 lh-27 py-2 bgBlue text-white px-3 rounded-3 fontMedium">
                   I want my QR code to scan to
