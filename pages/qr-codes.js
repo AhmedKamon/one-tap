@@ -1,12 +1,12 @@
+import axios from "axios";
 import "node-self";
 import QRCodeStyling from "qr-code-styling";
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { BsUpload } from "react-icons/bs";
+import React, { useEffect, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { UiFileInputButton } from "../components/fileUploadSection/fileUploadSection";
 import Navbar from "../components/navbar/navbar";
 import Sidebar from "../components/sidebar/sidebar";
 import styles from "../styles/qrCodes.module.css";
-import { QrContext } from "./_app";
 
 const qrCode = new QRCodeStyling({
   width: 320,
@@ -28,7 +28,6 @@ const qrCode = new QRCodeStyling({
 const QrCodes = () => {
   const [dots, setDots] = useState("classy");
   const [corneDots, setCornerDots] = useState("");
-  const [qrCodeInfo, setQrCodeInfo] = useContext(QrContext);
   const [showError, setShowError] = useState(false);
   const [organizationName, setOrganizationName] = useState("");
   const [showSpinner, setShowSpinner] = useState(false);
@@ -37,9 +36,9 @@ const QrCodes = () => {
   const [fileExt, setFileExt] = useState("png");
   const ref = useRef(null);
   const [imgURl, setImgURL] = useState("");
+  const [imageName, setImageName] = useState("");
 
   useEffect(() => {
-    console.log(qrCode);
     qrCode.append(ref.current);
   }, []);
 
@@ -78,23 +77,26 @@ const QrCodes = () => {
     setOrganizationName(e.target.value);
   };
 
-  const uploadImage = (files) => {
-    setShowSpinner(true);
-    const url = "https://api.cloudinary.com/v1_1/one-tap/image/upload";
+  const uploadImage = async (formData) => {
+    const config = {
+      headers: { "content-type": "multipart/form-data" },
+      onUploadProgress: (event) => {
+        console.log(event);
+        console.log(
+          `Current progress:`,
+          Math.round((event.loaded * 100) / event.total)
+        );
+      },
+    };
 
-    const formData = new FormData();
-    formData.append("file", files);
-    formData.append("upload_preset", "tbjkdozx");
+    const response = await axios.post("/api/uploads", formData, config);
+    if (response.status === 200) {
+    }
+  };
 
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setImgURL(data.url);
-        setShowSpinner(false);
-      });
+  const handleGetImageName = (name) => {
+    setImageName(name);
+    setImgURL(`http://localhost:3000/uploads/${name}`);
   };
 
   const handleSave = () => {
@@ -110,7 +112,7 @@ const QrCodes = () => {
         body: JSON.stringify({ imgUrl, color, link, companyName }),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => {});
     } else {
       setShowError(true);
     }
@@ -215,17 +217,11 @@ const QrCodes = () => {
               <h6 className={`${styles.title} fs-16 lh-13 py-3 px-3`}>
                 Image File
               </h6>
-              <label
-                htmlFor="file"
-                className="text-center d-block py-2 bg-white my-3 textColor cursor-poiter fontMedium"
-              >
-                <BsUpload className="me-2" /> Upload File{" "}
-              </label>
-              <input
-                type="file"
-                className="d-none"
-                id="file"
-                onChange={(e) => uploadImage(e.target.files[0])}
+              <UiFileInputButton
+                label="Upload Single File"
+                uploadFileName="theFiles"
+                onChange={uploadImage}
+                handleGetImageName={handleGetImageName}
               />
               <p className="mt-4 mb-1 fontMedium fs-16 lh-12 textColor">
                 Pick QR Colors
