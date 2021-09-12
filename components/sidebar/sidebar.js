@@ -45,9 +45,9 @@ const Sidebar = () => {
           ))}
         </ul>
         <div className={`${styles.upgrade}`}>
-          <div type="" className={`${styles.btn} py-2 mt-3 bg-white`}>
+          <div className={`${styles.btn} py-2 mt-3 bg-white`}>
             <span>
-              <BsStarFill className="me-2" style={{ fontSize: "25px" }} />
+              <BsStarFill className="me-2 fs-25" />
             </span>
             <Link href="/cards" className="fs-18">
               UPGRADE NOW

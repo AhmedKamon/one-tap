@@ -33,6 +33,6 @@
 }
 
 .btnNow:hover {
-    color: white;
-    background-image: linear-gradient(156deg, #004cd4, #679dff);
-  }
+  color: white;
+  background-image: linear-gradient(156deg, #004cd4, #679dff);
+}
