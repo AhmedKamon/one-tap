@@ -15,10 +15,19 @@ const qrCodeDataSchema = new mongoose.Schema({
   },
   imgUrl: {
     type: String,
+    default: "",
   },
   color: {
     type: String,
     default: "#171717",
+  },
+  dotStyle: {
+    type: String,
+    default: "classy",
+  },
+  corderDotStyle: {
+    type: String,
+    default: "square",
   },
 });
 

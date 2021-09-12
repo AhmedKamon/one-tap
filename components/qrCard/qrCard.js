@@ -1,15 +1,15 @@
 import Image from "next/image";
 import "node-self";
 import QRCodeStyling from "qr-code-styling";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { HiOutlineDownload } from "react-icons/hi";
 import styles from "../../styles/createTemplate.module.css";
 import QRCode from "../../utilites/images/001-qr-code.svg";
 
 const qrCode = new QRCodeStyling({
-  width: 130,
-  height: 130,
+  width: 250,
+  height: 250,
   margin: 10,
   dotsOptions: {
     color: "#171717",
@@ -22,10 +22,8 @@ const qrCode = new QRCodeStyling({
 });
 
 function QrCard({ qrcode }) {
+  console.log(qrcode.color);
   const ref = useRef(null);
-
-  const [isSmall, setIsSmall] = useState(false);
-  const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
     qrCode.append(ref.current);
@@ -33,8 +31,8 @@ function QrCard({ qrcode }) {
 
   useEffect(() => {
     qrCode.update({
-      width: 130,
-      height: 130,
+      width: 250,
+      height: 250,
       margin: 10,
       data: qrcode?.link,
       image: qrcode?.imgUrl,
@@ -42,53 +40,52 @@ function QrCard({ qrcode }) {
         margin: 10,
       },
       dotsOptions: {
-        color: qrcode?.color,
+        color: qrcode.color,
       },
     });
-  }, [qrcode.imgUrl, qrcode.link, qrcode.color, isSmall]);
+  }, [qrcode?.imgUrl, qrcode?.link, qrcode.color]);
 
   const onDownloadClick = () => {
-    setShowSpinner(true);
     qrCode.update({
-      width: 350,
-      height: 350,
+      width: 250,
+      height: 250,
       margin: 10,
-      data: qrcode?.link,
+      data: qrcode.link,
       image: qrcode?.imgUrl,
       imageOptions: {
         margin: 10,
       },
       dotsOptions: {
-        color: qrcode?.color,
+        color: qrcode.color,
+        type: qrcode.dotStyle,
+      },
+      cornersSquareOptions: {
+        type: qrcode.corderDotStyle,
       },
     });
     qrCode.download({
-      // name: organizationName,
+      name: qrcode.companyName,
       extension: "png",
     });
-    makeSmall();
   };
 
-  const makeSmall = () => {
-    setTimeout(() => {
-      setIsSmall(!isSmall);
-      setShowSpinner(false);
-      qrCode.append(ref.current);
-    }, 1000);
-  };
   return (
     <div className={`${styles.card} my-5 mx-4 rounded-3 shadow-sm`}>
       <div className="row px-3 py-1">
         <div className="col-md-2 d-flex justify-content-center align-items-center ">
-          {showSpinner ? "downloading..." : <div className="ms-2" ref={ref} />}
+          <Image src={QRCode} height="60" width="60" alt="qrCode" />
+          <div className="d-none" ref={ref}></div>
         </div>
         <div className="col-md-6 d-flex justify-content-between align-items-center">
           <div className="me-5">
             <div className="row">
               <div className="col-md-12">
+                <h6 className="fs-18 fontSemiBold">{qrcode.companyName}</h6>
                 <p className="m-0 fs-14">Link: {qrcode.link}</p>
                 <p className="m-0 fs-14">Org: {qrcode.companyName}</p>
-                <p className="m-0 fs-14">Created: {qrcode.createdAt}</p>
+                <p className="m-0 fs-14">
+                  Created: {qrcode.createdAt.slice(0, 10)}
+                </p>
               </div>
             </div>
           </div>

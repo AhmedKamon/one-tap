@@ -1,13 +1,9 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-// import firebase from "firebase/app";
-// import "firebase/auth";
-import jwt_encode from "jwt-encode";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as Yup from "yup";
 
@@ -128,7 +124,7 @@ const Signin = () => {
 
               <small className="text-center d-block mt-1">
                 <strong>
-                  Don't have any account?{" "}
+                  Don&apos;t have any account?{" "}
                   <Link href="/signup">
                     <a className="text-primary">Sign Up</a>
                   </Link>{" "}
