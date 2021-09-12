@@ -1,41 +1,42 @@
-import 'node-self';
-import QRCodeStyling from 'qr-code-styling';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { BsUpload, BsArrowDownShort } from 'react-icons/bs';
-import { IoIosArrowDown } from 'react-icons/io';
-import Navbar from '../components/navbar/navbar';
-import Sidebar from '../components/sidebar/sidebar';
-import styles from '../styles/qrCodes.module.css';
-import { QrContext } from './_app';
+import "node-self";
+import QRCodeStyling from "qr-code-styling";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { BsUpload } from "react-icons/bs";
+import { IoIosArrowDown } from "react-icons/io";
+import Navbar from "../components/navbar/navbar";
+import Sidebar from "../components/sidebar/sidebar";
+import styles from "../styles/qrCodes.module.css";
+import { QrContext } from "./_app";
 
 const qrCode = new QRCodeStyling({
   width: 320,
   height: 360,
   margin: 10,
   backgroundOptions: {
-    color: '#F3F5F7',
+    color: "#F3F5F7",
   },
   dotsOptions: {
-    color: '#171717',
-    type: 'Dots',
+    color: "#171717",
+    type: "Dots",
   },
   imageOptions: {
-    crossOrigin: 'anonymous',
+    crossOrigin: "anonymous",
     margin: 20,
   },
 });
 
 const QrCodes = () => {
-  const [dots, setDots] = useState('classy');
-  const [corneDots, setCornerDots] = useState('');
+  const [dots, setDots] = useState("classy");
+  const [corneDots, setCornerDots] = useState("");
   const [qrCodeInfo, setQrCodeInfo] = useContext(QrContext);
-  const [organizationName, setOrganizationName] = useState('');
+  const [showError, setShowError] = useState(false);
+  const [organizationName, setOrganizationName] = useState("");
   const [showSpinner, setShowSpinner] = useState(false);
-  const [selectedColor, setSelectedColor] = useState('#000');
-  const [url, setUrl] = useState('https://qr-code-styling.com');
-  const [fileExt, setFileExt] = useState('png');
+  const [selectedColor, setSelectedColor] = useState("#000");
+  const [url, setUrl] = useState("https://qr-code-styling.com");
+  const [fileExt, setFileExt] = useState("png");
   const ref = useRef(null);
-  const [imgURl, setImgURL] = useState('');
+  const [imgURl, setImgURL] = useState("");
 
   useEffect(() => {
     console.log(qrCode);
@@ -79,14 +80,14 @@ const QrCodes = () => {
 
   const uploadImage = (files) => {
     setShowSpinner(true);
-    const url = 'https://api.cloudinary.com/v1_1/one-tap/image/upload';
+    const url = "https://api.cloudinary.com/v1_1/one-tap/image/upload";
 
     const formData = new FormData();
-    formData.append('file', files);
-    formData.append('upload_preset', 'tbjkdozx');
+    formData.append("file", files);
+    formData.append("upload_preset", "tbjkdozx");
 
     fetch(url, {
-      method: 'POST',
+      method: "POST",
       body: formData,
     })
       .then((res) => res.json())
@@ -97,18 +98,22 @@ const QrCodes = () => {
   };
 
   const handleSave = () => {
-    setQrCodeInfo(qrCode);
-    const imgUrl = imgURl;
-    const color = selectedColor;
-    const link = url;
-    const companyName = organizationName;
-    fetch('http://localhost:3000/api/qrcode', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ imgUrl, color, link, companyName }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    setShowError(false);
+    if (organizationName) {
+      const imgUrl = imgURl;
+      const color = selectedColor;
+      const link = url;
+      const companyName = organizationName;
+      fetch("http://localhost:3000/api/qrcode", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ imgUrl, color, link, companyName }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    } else {
+      setShowError(true);
+    }
   };
 
   return (
@@ -123,7 +128,7 @@ const QrCodes = () => {
           <div className="row mt-5 d-flex justify-content-between pb-5">
             <div className="col-md-5">
               <h3 className="fs-24 lh-27 fw-bold">Create a new QR Code</h3>
-              <h6 className="mt-4 fs-17 m-0 lh-27">Name my code (optional)</h6>
+              <h6 className="mt-4 fs-17 m-0 lh-27">Name my code</h6>
               <input
                 className={`${styles.qrInput} form-control mt-2`}
                 type="text"
@@ -134,10 +139,15 @@ const QrCodes = () => {
                 placeholder="Enter company name"
                 onChange={handleChange}
               />
+              {showError ? (
+                <p className="text-danger my-2">Projects Name Required</p>
+              ) : (
+                ""
+              )}
               <div className=" mt-4">
                 <h6
                   className="mt-5 mb-4 fs-20 lh-13 fw-bold text-center"
-                  style={{ color: '#004CD4' }}
+                  style={{ color: "#004CD4" }}
                 >
                   Preview
                 </h6>
@@ -155,14 +165,14 @@ const QrCodes = () => {
                       role="status"
                     >
                       <span className="visually-hidden">Loading...</span>
-                    </div>{' '}
+                    </div>{" "}
                     Generating QR code...
                   </div>
                 )}
                 <div className="ms-2" ref={ref} />
               </div>
             </div>
-            <div className="col-md-5 p-3 my-5" style={{ width: '350px' }}>
+            <div className="col-md-5 p-3 my-5" style={{ width: "350px" }}>
               {/* ======================= */}
               <div className="row">
                 <div className="col-md-6">
@@ -209,7 +219,7 @@ const QrCodes = () => {
                 htmlFor="file"
                 className="text-center d-block py-2 bg-white my-3 textColor cursor-poiter fontMedium"
               >
-                <BsUpload className="me-2" /> Upload File{' '}
+                <BsUpload className="me-2" /> Upload File{" "}
               </label>
               <input
                 type="file"
@@ -228,11 +238,11 @@ const QrCodes = () => {
                     id="color"
                     placeholder="Pick a color"
                     style={{
-                      border: 'none !important',
-                      width: '140px',
-                      height: '40px',
-                      borderRadius: '10px',
-                      color: 'red !important',
+                      border: "none !important",
+                      width: "140px",
+                      height: "40px",
+                      borderRadius: "10px",
+                      color: "red !important",
                     }}
                     onChange={(e) => setSelectedColor(e.target.value)}
                     type="color"
@@ -246,9 +256,9 @@ const QrCodes = () => {
                     className="text-white text-center mt-2 pt-2"
                     style={{
                       backgroundColor: `${selectedColor}`,
-                      width: '140px',
-                      height: '40px',
-                      borderRadius: '5px',
+                      width: "140px",
+                      height: "40px",
+                      borderRadius: "5px",
                     }}
                   >
                     {selectedColor}
@@ -258,7 +268,7 @@ const QrCodes = () => {
               <div>
                 <p
                   className={`mt-2 text-center px-2 py-2 fs-14 lh-28 cursor-poiter rounded-3 textColor`}
-                  style={{ backgroundColor: '#E8F0FF' }}
+                  style={{ backgroundColor: "#E8F0FF" }}
                   onClick={handleSave}
                 >
                   SAVE FOR ART BOARD
