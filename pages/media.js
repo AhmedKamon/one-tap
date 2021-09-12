@@ -1,30 +1,30 @@
-import Image from "next/image";
-import "node-self";
-import QRCodeStyling from "qr-code-styling";
-import React, { useEffect, useRef, useState } from "react";
-import Navbar from "../components/navbar/navbar";
-import Sidebar from "../components/sidebar/sidebar";
-import styles from "../styles/media.module.css";
-import demo from "../utilites/images/damo.svg";
+import Image from 'next/image';
+import 'node-self';
+import QRCodeStyling from 'qr-code-styling';
+import React, { useEffect, useRef, useState } from 'react';
+import Navbar from '../components/navbar/navbar';
+import Sidebar from '../components/sidebar/sidebar';
+import styles from '../styles/media.module.css';
+import demo from '../utilites/images/damo.svg';
 // const QRCodeStyling = dynamic(() => import("qr-code-styling"));
 
 const qrCode = new QRCodeStyling({
   width: 300,
   height: 300,
   image:
-    "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+    'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg',
   dotsOptions: {
-    color: "#4267b2",
-    type: "rounded",
+    color: '#4267b2',
+    type: 'rounded',
   },
   imageOptions: {
-    crossOrigin: "anonymous",
+    crossOrigin: 'anonymous',
     margin: 20,
   },
 });
 const Media = () => {
-  const [url, setUrl] = useState("https://qr-code-styling.com");
-  const [fileExt, setFileExt] = useState("png");
+  const [url, setUrl] = useState('https://qr-code-styling.com');
+  const [fileExt, setFileExt] = useState('png');
   const ref = useRef(null);
 
   useEffect(() => {
@@ -51,6 +51,47 @@ const Media = () => {
       extension: fileExt,
     });
   };
+
+  const handleClick = () => {
+    fetch('https://api.beaconstac.com/api/2.0/qrcodes/', {
+      method: 'POST',
+      headers: {
+        Authorization: 'Token 316db685fed535da7c9a6f7880ee9600f0ae80c9',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: 'Sagor vhai',
+        qr_type: 2,
+        organization: 65942,
+        attributes: {
+          color: '#000000',
+          margin: 25,
+        },
+
+        campaign: {
+          custom_url: 'https://www.google.com',
+          content_type: 1,
+        },
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(
+          `https://api.beaconstac.com/api/2.0/qrcodes/${data.id}/download/?canvas_type=png`
+        );
+        fetch(
+          `https://api.beaconstac.com/api/2.0/qrcodes/${data.id}/download/?canvas_type=png`,
+          {
+            method: 'GET',
+            headers: {
+              Authorization: 'Token  316db685fed535da7c9a6f7880ee9600f0ae80c9',
+              'content-type': 'application/json',
+            },
+          }
+        );
+        console.log('chagol vhaai', data);
+      });
+  };
   return (
     <div className="container vh-100">
       <div className="row">
@@ -67,6 +108,11 @@ const Media = () => {
             width={640}
             layout="responsive"
           />
+          {/* //////// */}
+          <button type="submit" onClick={handleClick}>
+            Genarate
+          </button>
+          {/* //////// */}
           <div style={styles.inputWrapper}>
             <input value={url} onChange={onUrlChange} style={styles.inputBox} />
             <select onChange={onExtensionChange} value={fileExt}>

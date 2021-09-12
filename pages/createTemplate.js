@@ -1,16 +1,14 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
-import React from "react";
-import { AiOutlineDelete } from "react-icons/ai";
 import { GoPlus } from "react-icons/go";
-import { HiOutlineDownload } from "react-icons/hi";
 import Navbar from "../components/navbar/navbar";
+import QrCard from "../components/qrCard/qrCard";
 import Sidebar from "../components/sidebar/sidebar";
-import styles from "../styles/createTemplate.module.css";
 import QRCode from "../utilites/images/001-qr-code.svg";
 
-const CreateTemplate = () => {
-  const router = useRouter();
+//
+
+const CreateTemplate = ({ qrCodes }) => {
+  const idCollection = qrCodes.map((qr) => qr._id);
   return (
     <div className="container vh-100">
       <div className="row">
@@ -43,56 +41,13 @@ const CreateTemplate = () => {
               </h6>
             </div>
             <hr />
-
-            <div className={`${styles.card} my-5 mx-4 rounded-3 shadow-sm`}>
-              <div className="row px-3 py-1">
-                <div className="col-md-2 d-flex justify-content-center align-items-center ">
-                  <Image src={QRCode} height="90" width="90" alt="qrCode" />
-                </div>
-                <div className="col-md-6 d-flex justify-content-between align-items-center">
-                  <div className="me-5">
-                    <h3 className="fs-18 fontSemiBold lh-12 textColor my-3">
-                      WEBSITE 10/08/2021
-                    </h3>
-                    <div className="row">
-                      <div className="col-md-12">
-                        <p className="m-0 fs-14">
-                          Link: https://qrcodes.pro/eLGyzc
-                        </p>
-                        <p className="m-0 fs-14">Org: Master organization</p>
-                        <p className="m-0 fs-14">Created: August 10, 2021</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="d-flex flex-column  justify-content-center align-items-center mt-4">
-                    <Image src={QRCode} height="40" width="40" alt="qrCode" />
-                    <p className="m-0 mt-3 fontMedium textColor fs-18 lh-26">
-                      0
-                    </p>
-                    <p className="m-0 fontMedium textColor fs-18 lh-26">
-                      Scans
-                    </p>
-                  </div>
-                </div>
-
-                <div className="col-md-4 py-5 ps-5 pe-3">
-                  <button
-                    type=""
-                    className={`${styles.btn} d-flex justify-content-center align-items-center px-4 py-2  rounded-3 mt-2 w-100`}
-                  >
-                    <AiOutlineDelete size={18} className="me-1" />
-                    <span className="fs-12 lh-16">Delete</span>
-                  </button>
-                  <button
-                    type=""
-                    className={`${styles.btn} d-flex justify-content-center align-items-center px-4 py-2  rounded-3 mt-2 w-100`}
-                  >
-                    <HiOutlineDownload size={18} className="me-1" />
-                    <span className="fs-12 lh-16">Download</span>
-                  </button>
-                </div>
-              </div>
-            </div>
+            {qrCodes.map((qrcode) => (
+              <QrCard
+                key={qrcode._id}
+                qrcode={qrcode}
+                idCollection={idCollection}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -101,3 +56,16 @@ const CreateTemplate = () => {
 };
 
 export default CreateTemplate;
+
+export async function getServerSideProps() {
+  const res = await fetch("http://localhost:3000/api/qrcode");
+  const qrCodesData = await res.json();
+
+  const qrCodes = qrCodesData.qrCodeData;
+
+  return {
+    props: {
+      qrCodes,
+    },
+  };
+}

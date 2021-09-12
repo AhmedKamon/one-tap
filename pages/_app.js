@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { createContext, useState } from "react";
 import "../styles/globals.css";
-const QrContext = createContext();
+export const QrContext = createContext();
 
 function MyApp({ Component, pageProps }) {
   const [qrCodeInfo, setQrCodeInfo] = useState("");
